@@ -2,8 +2,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-Nouveau projet Claire
-
 In the project directory, you can run:
 
 ### `npm start`
@@ -69,11 +67,16 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-<!-- Toutes les données de l'application: 
-- Texte de recherche saisies par l'utilisateur + case à cocher / Etat
-- Liste des pokemons / props
-- Liste filtrée des pokemons / props
-- Détails de/des pokemons / props
-- Détails de l'utilisateur / Etat
-- Les pokémons de l'équipe / Etat
-- Les pokémons des favoris / Etat -->
+<!-- Toutes les données à gérer dans l'application: 
+- Liste des pokémons / props
+- Texte saisi par l'utilisateur et cases cochés filtres / Etat
+- Détail et box des pokemon / props
+- Team de pokemon / Etat
+- Les pokemons favoris / Etat
+- Le composant pokedex qui recoit d'autres composants / Etat
+
+Pour savoir si ça va être des composants fonctionnels ou à état on doit se poser les questions par rapport aux données plus haut :
+
+- Est-elle passée depuis un parent via les props ? Si oui, ce n’est probablement pas de l’état.
+- Est-elle figée dans le temps ? Si oui, ce n’est probablement pas de l’état.
+- Pouvez-vous la calculer en vous basant sur le reste de l’état ou les props de votre composant ? Si oui, ce n’est pas de l’état. -->
