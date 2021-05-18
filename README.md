@@ -66,3 +66,12 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+<!-- Toutes les données de l'application: 
+- Texte de recherche saisies par l'utilisateur + case à cocher / Etat
+- Liste des pokemons / props
+- Liste filtrée des pokemons / props
+- Détails de/des pokemons / props
+- Détails de l'utilisateur / Etat
+- Les pokémons de l'équipe / Etat
+- Les pokémons des favoris / Etat -->

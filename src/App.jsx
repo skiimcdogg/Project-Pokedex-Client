@@ -10,7 +10,7 @@ import Profile from "./pages/Profile";
 function App() {
   return (
     <div className="App">
-      <NavMain />
+      <Home />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={Signin} />

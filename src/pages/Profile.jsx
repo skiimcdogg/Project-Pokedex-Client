@@ -1,11 +1,21 @@
 import React from "react";
+import NavMain from './NavMain'
+import UserDetail from './../components/UserDetail'
+import PokemonsTeam from './../components/PokemonsTeam'
+import FavoritesPokemons from './../components/FavoritesPokemons'
 
-const Profile = (props) => {
-  return (
-    <div>
-      <h1>Protected profile</h1>
-    </div>
-  );
+class Profile extends React.Component{
+  render() {
+    return (
+      <div>
+        <h1>Protected profile</h1>
+        <NavMain />
+        <UserDetail />
+        <PokemonsTeam />
+        <FavoritesPokemons />
+      </div>
+    );
+  }
 };
 
 export default Profile;
