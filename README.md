@@ -74,9 +74,22 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 - Team de pokemon / Etat
 - Les pokemons favoris / Etat
 - Le composant pokedex qui recoit d'autres composants / Etat
+- Detail profile / Etat
 
-Pour savoir si ça va être des composants fonctionnels ou à état on doit se poser les questions par rapport aux données plus haut :
+Pour savoir de quoi sera composé l'état :
 
 - Est-elle passée depuis un parent via les props ? Si oui, ce n’est probablement pas de l’état.
 - Est-elle figée dans le temps ? Si oui, ce n’est probablement pas de l’état.
-- Pouvez-vous la calculer en vous basant sur le reste de l’état ou les props de votre composant ? Si oui, ce n’est pas de l’état. -->
+- Pouvez-vous la calculer en vous basant sur le reste de l’état ou les props de votre composant ? Si oui, ce n’est pas de l’état.
+
+Qui possèdera l'état ?
+1 trouver LES composants qui afficheront quelque chose en fonction de cet état
+2 Trouver l'ancêtre commun de ces composants qui à besoin de cet état
+3 Si aucun composant n'est trouvé, IL FAUT EN CREER UN
+
+DONC
+- PokemonList affiche les données filtrées en fonction de l'état de la SearchBar
+- Leur ancêtre commun est Pokedex.jsx il contiendra donc l'état du filtre ainsi que les cases à cocher pour le filtre
+
+Il faut ensuite faire descendre via les props le state (a la liste) et les fonctions pour modifier le state a la searchbar.
+ -->

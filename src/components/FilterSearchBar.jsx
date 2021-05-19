@@ -1,15 +1,16 @@
 import React from 'react'
 
-class FilterSearchBar extends react.Component{
-    state = {
-        search: '',
-    }
-    
-    render() {
-     return (
-       <div></div>
-        )
-    }
+const FilterSearchBar = ({ search, handleSearchFn }) => {
+ return (
+    <div>
+        <input
+        onChange={(event) => handleSearchFn(event.target.value)}
+        type="text"
+        name="search"
+        value={search}
+        />
+    </div>
+ )
 }
 
 export default FilterSearchBar;
