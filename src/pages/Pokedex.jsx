@@ -10,6 +10,20 @@ class Pokedex extends React.Component {
     search: '',
   }
 
+  componentDidMount() {
+    apiHandler
+      .getPokemons
+      .then((response) => {
+
+        //NOT MUTATING THE STATE DIRECTLY
+        this.setState({ pokemons: response.dbRes });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+
   handleSearch = (valueFromSearch) => {
     this.setState({ search: valueFromSearch });
   };
@@ -21,7 +35,7 @@ const {search} = this.state;
     <div>
         <NavMain />
         <FilterSearchBar search={search} handleSearchFn={this.handleSearch}/>
-        <PokemonsList />
+        <PokemonsList pokemons={this.state.pokemons}/>
         <PokemonDetail />
 
     </div>

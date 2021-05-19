@@ -44,9 +44,16 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
-  getItems() {
+  // getItems() {
+  //   return service
+  //     .get("/api/items")
+  //     .then((res) => res.data)
+  //     .catch(errorHandler);
+  // },
+
+  getPokemons() {
     return service
-      .get("/api/items")
+      .get("/api/pokemons")
       .then((res) => res.data)
       .catch(errorHandler);
   },
