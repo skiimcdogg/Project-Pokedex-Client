@@ -1,5 +1,5 @@
 import React from "react";
-import NavMain from './NavMain'
+import NavMain from '../components/NavMain'
 import UserDetail from './../components/UserDetail'
 import PokemonsTeam from './../components/PokemonsTeam'
 import FavoritesPokemons from './../components/FavoritesPokemons'

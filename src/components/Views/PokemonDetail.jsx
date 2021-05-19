@@ -1,6 +1,7 @@
 import React from 'react'
 
-function PokemonDetail() {
+function PokemonDetail(props) {
+    console.log("PROPS DETAIL", props)
     return (
         <div>
             
