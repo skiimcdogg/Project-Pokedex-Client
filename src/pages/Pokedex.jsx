@@ -42,9 +42,8 @@ if (this.state.pokemons === []) {
         <NavMain />
         <FilterSearchBar search={search} handleSearchFn={this.handleSearch}/>
         <PokemonsList pokemons={this.state.pokemons}/>
-        <Switch>
-          <Route exact path={"/pokedex/:id"} component={PokemonDetail}/>
-        </Switch>
+        <Route exact path={"/pokedex/:id"} component={PokemonDetail}/>
+        
         
 
     </div>
