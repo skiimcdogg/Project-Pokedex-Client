@@ -33,7 +33,8 @@ class Pokedex extends React.Component {
   };
 
   render() {
-const {search} = this.state;
+const  { search } = this.state;
+const { pokemons } = this.state;
 if (this.state.pokemons === []) {
   return <div>Loading...</div>;
 } 
@@ -41,7 +42,13 @@ if (this.state.pokemons === []) {
     <div>
         <NavMain />
         <FilterSearchBar search={search} handleSearchFn={this.handleSearch}/>
-        <PokemonsList pokemons={this.state.pokemons}/>
+        {pokemons
+        .filter((item) =>
+        item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+        )
+        .map((item, index) => <PokemonsList key={index} pokemons={item}/>)
+        }
+        
         <Route exact path={"/pokedex/:id"} component={PokemonDetail}/>
         
         

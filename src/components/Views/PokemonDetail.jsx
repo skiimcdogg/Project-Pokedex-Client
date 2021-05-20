@@ -26,7 +26,7 @@ class PokemonDetail extends React.Component {
   componentDidMount() {
     let id = this.props.match.params.id;
     axios
-      .get(process.env.REACT_APP_BACKEND_URL + `/api/pokemons/${id}`)
+      .get(process.env.REACT_APP_BACKEND_URL + `api/pokemons/${id}`)
       .then((response) => {
           
         this.setState({ pokemon: response });
@@ -34,6 +34,23 @@ class PokemonDetail extends React.Component {
       .catch((error) => {
         console.log(error);
       });
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    // console.log("I am upodating, look at my beautiful props changing !", this.props.match.params.id, "what do i do with this ?")
+
+    if (prevProps.match.params.id !== this.props.match.params.id ){
+      let id = this.props.match.params.id;
+    axios
+      .get(process.env.REACT_APP_BACKEND_URL + `api/pokemons/${id}`)
+      .then((response) => {
+          
+        this.setState({ pokemon: response });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    }
   }
 
   render() 
