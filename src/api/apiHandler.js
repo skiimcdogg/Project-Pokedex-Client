@@ -57,6 +57,13 @@ const apiHandler = {
       .then((res) => res.data)
       .catch(errorHandler);
   },
+
+  getTypes() {
+    return service
+      .get("/api/pokemons/types")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  }
 };
 
 

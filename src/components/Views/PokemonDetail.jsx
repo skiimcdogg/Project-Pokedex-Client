@@ -45,7 +45,7 @@ class PokemonDetail extends React.Component {
     if (this.state.pokemon === null) {
       return <div>Loading...</div>;
     }
-    console.log("DATA", this.state.pokemon.data.types, this.state.pokemon.data.types[0].type.name);
+    // console.log("DATA", this.state.pokemon.data.types, this.state.pokemon.data.types[0].type.name);
     return (
       <div >
           

@@ -21,14 +21,15 @@ const {electric} = props
           );
         })} */}
 
-        {electric? 
+        {/* {electric?  */}
           <div className="one-pokemon">
               <Link exact to={`/pokedex/${props.pokemons.id}`}>
                 <img src={props.pokemons.sprites.front_default} alt="" />
               </Link>
               <p>{props.pokemons.name}</p>
               {props.pokemons.types.map((item)=> <p>{item.type.name}</p>)}
-            </div>: 
+            </div>
+             {/* : 
             <div className="one-pokemon">
               <Link exact to={`/pokedex/${props.pokemons.id}`}>
                 <img src={props.pokemons.sprites.front_default} alt="" />
@@ -37,11 +38,11 @@ const {electric} = props
               {props.pokemons.types
               .filter((item) =>{ 
                 item.type.name.includes('electric')
-              console.log(props.pokemons);
+              // console.log(props.pokemons);
               })
               .map((item)=> <p>{item.type.name}</p>)}
-              </div>}
-      </div>
+              </div>} */}
+      </div>  
     </div>
   );
 }
