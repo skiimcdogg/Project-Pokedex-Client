@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FilterSearchBar = ({ search, handleSearchFn }) => {
+const FilterSearchBar = ({ search, handleSearchFn, handleChange, electric }) => {
  return (
     <div>
         <input
@@ -9,6 +9,14 @@ const FilterSearchBar = ({ search, handleSearchFn }) => {
         name="search"
         value={search}
         />
+
+<input
+type="checkbox"
+defaultChecked={electric}
+onChange={handleChange}
+/>
+        
+
     </div>
  )
 }
