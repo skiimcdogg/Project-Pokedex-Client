@@ -10,18 +10,14 @@ const FilterSearchBar = ({ search, handleSearchFn, handleChange, electric }) => 
         value={search}
         />
         
-    </div>
- )
-}
-
-export default FilterSearchBar;
-
-
-
-
-{/* <input
+        {/* <input
 type="checkbox"
 defaultChecked={electric}
 onChange={handleChange}
 />
          */}
+    </div>
+ )
+}
+
+export default FilterSearchBar;

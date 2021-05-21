@@ -17,7 +17,7 @@ class Filters extends Component {
         <p>types</p>
         {this.props.types.results.map((type) => {
           return (
-            <div key={type.index}>
+            <div key={type.name}>
               <label>{type.name}</label>
               <input
                 type="checkbox"

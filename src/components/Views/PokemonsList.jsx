@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function PokemonsList(props) {
     // console.log("PROPS", props.pokemons)
-const {electric} = props
+// const {electric} = props
   return (
     <div>
       <div className="pokemons">
@@ -23,11 +23,11 @@ const {electric} = props
 
         {/* {electric?  */}
           <div className="one-pokemon">
-              <Link exact to={`/pokedex/${props.pokemons.id}`}>
+              <Link to={`/pokedex/${props.pokemons.id}`}>
                 <img src={props.pokemons.sprites.front_default} alt="" />
               </Link>
               <p>{props.pokemons.name}</p>
-              {props.pokemons.types.map((item)=> <p>{item.type.name}</p>)}
+              {props.pokemons.types.map((item)=> <p key={item.type.name}>{item.type.name}</p>)}
             </div>
              {/* : 
             <div className="one-pokemon">

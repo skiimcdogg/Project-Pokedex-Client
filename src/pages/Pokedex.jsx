@@ -4,7 +4,7 @@ import FilterSearchBar from "../components/FilterSearchBar";
 import PokemonsList from "../components/Views/PokemonsList";
 import PokemonDetail from "../components/Views/PokemonDetail";
 import apiHandler from "../api/apiHandler";
-import { Switch, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Filters from "../components/Filters";
 // import axios from "axios";
 
@@ -12,7 +12,7 @@ class Pokedex extends React.Component {
   state = {
     pokemons:[],
     search:'',
-    electric: false,
+    // electric: false,
     types:[],
     typesChecked: []
   }
