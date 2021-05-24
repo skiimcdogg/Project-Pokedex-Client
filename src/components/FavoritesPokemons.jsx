@@ -19,7 +19,7 @@ class FavoritesPokemons extends Component {
                 return (
                 <div key={pokemon._id}>
                   <h2>{pokemon.name} </h2>
-                  <img src={pokemon.image}/>
+                  <img src={pokemon.image} alt=""/>
                 </div>
                 )} 
               )}

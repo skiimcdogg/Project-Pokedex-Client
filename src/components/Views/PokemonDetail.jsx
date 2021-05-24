@@ -55,7 +55,7 @@ class PokemonDetail extends React.Component {
             alt={this.state.pokemon.data.name}
           />
           <h2 className="single-pokemon">{this.state.pokemon.name}</h2>
-          {this.state.pokemon.data.types.map((item)=> <p>{item.type.name}</p>)}
+          {this.state.pokemon.data.types.map((item)=> <p key={item.type.name}>{item.type.name}</p>)}
          
 
 
