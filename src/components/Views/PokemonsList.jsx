@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 function PokemonsList(props) {
-    // console.log("PROPS", props.pokemons)
+    console.log("PROPS", props.pokemons)
 const {electric} = props
   return (
     <div>

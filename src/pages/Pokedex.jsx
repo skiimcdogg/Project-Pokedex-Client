@@ -73,6 +73,7 @@ const  { search } = this.state;
 const { pokemons } = this.state;
 const { electric } = this.state;
 const  { types } = this.state;
+const { typesChecked } = this.state;
 // console.log(electric);
 if (this.state.pokemons === []) {
   return <div>Loading...</div>;
@@ -83,11 +84,28 @@ if (this.state.pokemons === []) {
         <Filters types={types} handleChangeInput={this.handleChangeInput}/>
         <FilterSearchBar search={search} electric={electric} handleChange={this.handleChange} handleSearchFn={this.handleSearch}/>
         {pokemons
-        .filter((item) =>
-        item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+        .filter((item) => {
+          item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+
+          let typeNames =[]
+          for (let i=0;i<item.types.length;i++){
+           typeNames.push(item.types[i].type.name)
+           console.log(typeNames)
+          }
+        
+          typeNames.includes(typesChecked)
+          
+        }
+        
         )
         .map((item, index) => <PokemonsList electric={electric} key={index} pokemons={item}/>)
         }
+
+{/* {pokemons
+        .filter((item) => 
+        item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()) && item.types[0].type.name.includes(typesChecked))
+        .map((item, index) => <PokemonsList electric={electric} key={index} pokemons={item}/>)
+        } */}
         
         <Route exact path={"/pokedex/:id"} component={PokemonDetail}/>
         
