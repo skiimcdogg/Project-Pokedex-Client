@@ -87,8 +87,8 @@ class Pokedex extends React.Component {
         />
         {pokemons
           .filter((item) => 
-          item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()) && item.types.length === 2 ? item.types[0].type.name.includes(typesChecked) || item.types[1].type.name.includes(typesChecked) : item.types[0].type.name.includes(typesChecked))
-          //item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()) && item.types[0].type.name.includes(typesChecked))
+          // item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()) && item.types.length === 2 ? item.types[0].type.name.includes(typesChecked) || item.types[1].type.name.includes(typesChecked) : item.types[0].type.name.includes(typesChecked))
+          item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()) && item.types[0].type.name.includes(typesChecked))
           //mettre un ternaire pour savoir si un ou deux types, et selon ça mettre type 0 et type 1
           .map((item, index) => <PokemonsList electric={electric} key={index} pokemons={item}/>)
           }

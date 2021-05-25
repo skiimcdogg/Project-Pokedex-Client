@@ -3,18 +3,24 @@ import NavMain from '../components/NavMain'
 import UserDetail from './../components/UserDetail'
 import PokemonsTeam from './../components/PokemonsTeam'
 import FavoritesPokemons from './../components/FavoritesPokemons'
+import EditUser from './../components/Forms/EditUser'
 import { withUser } from "./../components/Auth/withUser"
 
 class Profile extends Component{
   state = {
     user: null,
+    formVisibile: false
   };
 
   componentDidMount() {
-          console.log(this.props.context.user)
+      console.log(this.props.context.user)
 
     this.setState({ user: this.props.context.user})
   }
+
+  handleDisplayForm = () => {
+    this.setState({ formVisibile: !this.state.formVisibile });
+  };
 
   render() {
     if (this.state.user === null) {
@@ -25,6 +31,14 @@ class Profile extends Component{
       <div>
         <NavMain />
         <UserDetail user={this.state.user}/>
+        <button onClick={this.handleDisplayForm}>
+          Update your infos
+        </button>
+        {this.state.formVisibile && (
+          <div>
+            <EditUser user={this.state.user}/>
+          </div>
+        )}
         <PokemonsTeam team={this.state.user.pokeTeam}/>
         <FavoritesPokemons favorites={this.state.user.pokeFav}/>
       </div>
