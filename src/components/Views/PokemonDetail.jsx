@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import FormFav from "../Forms/FormFav";
 // import apiHandler from "../api/apiHandler";
 import { withRouter } from "react-router-dom";
 
@@ -48,7 +49,7 @@ class PokemonDetail extends React.Component {
     // console.log("DATA", this.state.pokemon.data.types, this.state.pokemon.data.types[0].type.name);
     return (
       <div >
-          
+          <FormFav pokemon={this.state.pokemon}/>
         <div >
           <img
             src={this.state.pokemon.data.sprites.front_default}
