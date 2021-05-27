@@ -1,118 +1,66 @@
 import axios from "axios";
-import React, { Component } from "react";
+import React from "react";
 import { withRouter } from "react-router-dom";
 
-class FormFav extends Component {
-  state = {
-    name: '',
-    types: [],
-    height: 0,
-    weight: 0,
-    stats: [],
-    base_stat: [],
-    moves: [],
-    image: ''
-  };
+function FormFav (props) {
+ 
 
-  //TAKES THE VALUE THAT THE USER IS TYPING AND SETS IT IN THE STATE
-  handleChange = (event) => {
-    const key = event.target.name;
-    this.setState({ [key]: event.target.value });
-  };
+ let typesArray= props.pokemon.data.types.map((item)=>item.type.name)
+ console.log(typesArray)
 
-  handleImage = (event) => {
-    const file = event.target.files[0]; // Get the value of file input
-    console.log(file);
-    // console.log(file, "this is the file");
-    this.setState({ image: file });
-  };
+ let statsArray= props.pokemon.data.stats.map((item)=>item.stat.name)
+ console.log(statsArray)
+
+ let baseStatsArray= props.pokemon.data.stats.map((item)=>item.base_stat)
+ console.log(baseStatsArray)
+
+ let movesArray= props.pokemon.data.moves.map((item)=>item.move.name)
+ console.log(movesArray)
+
+ 
 
   //WHEN USER CLICKS ON SUBMIT SENDS THE DATA TO THE DATABASE THROUGH AXIOS CALL
-  handleSubmit = (event) => {
+  let handleSubmit = (event) => {
     event.preventDefault();
     console.log("handle submit is working");
-    const formData = new FormData();
-
-    formData.append("name", this.state.name);
-    formData.append("image", this.state.image);
-    formData.append("height", this.state.height);
-    
+   
 
     axios
-      .post(process.env.REACT_APP_BACKEND_URL + "api/pokemons/createFav", formData, {
+      .post(process.env.REACT_APP_BACKEND_URL + "api/pokemons/createFav", {
+        name:props.pokemon.data.name,
+        height:props.pokemon.data.height,
+        weight:props.pokemon.data.weight,
+        image:props.pokemon.data.sprites.front_default,
+        types:typesArray,
+        stats:statsArray,
+        base_stat:baseStatsArray,
+        moves:movesArray
+      }, {
         withCredentials: true,
       })
       .then((response) => {
         //REDIRECT FRONT END
-        this.props.history.push(`/profile`);
+        props.history.push(`/profile`);
       })
       .catch((error) => {
         console.log("ERROR",error);
-        this.setState({ message: error.response.data.message });
+        
       });
   };
 
-  handleEmailListChange= (index, event)=> {
-    var types = this.state.types.slice(); // Make a copy of the emails first.
-    types[index] = event.target.value; // Update it with the modified email.
-    this.setState({types: types}); // Update the state.
-}
 
-  render() {
-      console.log("POKEMON DE DETALS", this.props.pokemon)
 
+ 
     return (
-      <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
+      <form onSubmit={handleSubmit} enctype="multipart/form-data">
         {/* ENCTYPE MULTIPART HANDLES FILE UPLOAD  */}
-        <div className="fav-form">
-          
         <div>
-            <label htmlFor="name">Name</label>
-            <input
-              id="name"
-              onChange={this.handleChange}
-              value={this.props.pokemon.data.name}
-              name="name"
-              type="text"
-            />
-          </div>
-          <div>
-            <label htmlFor="image">Image</label>
-            <input
-              id="image"
-              name="image"
-              value={this.props.pokemon.data.image}
-              onChange={this.handleImage}
-              type="file"
-            />
-          </div>
-         
-          <div>
-            <label htmlFor="height">Height</label>
-            <input
-              id="height"
-              onChange={this.handleChange}
-              value={this.props.pokemon.data.height}
-              name="height"
-              type="number"
-            />
-          </div>
-          <div>
-        {
-          this.props.pokemon.data.types.map((type) => {
-            <div key={this.props.pokemon.id}>
-              <button onClick={this.handleEmailListChange.bind(this,type.key)}/>
-            </div>
-          })
-        }
-      </div>
           
-          
-          <button>Submit</button>
+          <button>Submit Fav</button>
         </div>
       </form>
     );
   }
-}
+
 
 export default withRouter(FormFav);

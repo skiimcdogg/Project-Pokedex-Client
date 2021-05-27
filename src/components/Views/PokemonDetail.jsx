@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import FormFav from "../Forms/FormFav";
+import FormTeam from "../Forms/FormTeam";
 // import apiHandler from "../api/apiHandler";
 import { withRouter } from "react-router-dom";
 
@@ -50,6 +51,7 @@ class PokemonDetail extends React.Component {
     return (
       <div >
           <FormFav pokemon={this.state.pokemon}/>
+          <FormTeam pokemon={this.state.pokemon}/>
         <div >
           <img
             src={this.state.pokemon.data.sprites.front_default}
