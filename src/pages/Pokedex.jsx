@@ -80,7 +80,6 @@ class Pokedex extends React.Component {
         <Filters types={types} handleChangeInput={this.handleChangeInput} />
         <FilterSearchBar
           search={search}
-          handleChange={this.handleChange}
           handleSearchFn={this.handleSearch}
         />
         
