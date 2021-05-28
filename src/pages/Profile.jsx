@@ -13,7 +13,7 @@ class Profile extends Component{
   };
 
   componentDidMount() {
-      console.log(this.props.context.user)
+      // console.log(this.props.context.user)
 
     this.setState({ user: this.props.context.user})
   }
@@ -26,7 +26,7 @@ class Profile extends Component{
     if (this.state.user === null) {
       return <div>Loading...</div>;
     }
-
+// console.log("profile", this.state.user);
     return (
       <div>
         <NavMain />
@@ -36,7 +36,7 @@ class Profile extends Component{
         </button>
         {this.state.formVisibile && (
           <div>
-            <EditUser user={this.state.user}/>
+            <EditUser handleDisplayFormFn={this.handleDisplayForm} />
           </div>
         )}
         <PokemonsTeam team={this.state.user.pokeTeam}/>
