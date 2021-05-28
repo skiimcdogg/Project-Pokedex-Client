@@ -9,6 +9,7 @@ import { withRouter } from "react-router-dom";
 class PokemonDetail extends React.Component {
   state = {
     pokemon: null,
+    user:null
   };
 
   componentDidMount() {
@@ -22,6 +23,18 @@ class PokemonDetail extends React.Component {
       .catch((error) => {
         console.log(error);
       });
+
+      axios
+    .get(process.env.REACT_APP_BACKEND_URL + "api/user",{
+      withCredentials: true,
+    })
+    .then((response) => {
+          console.log("RESPONSE DB",response)
+      this.setState({ user: response.data });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   }
 
   componentDidUpdate(prevProps, prevState){
@@ -34,6 +47,17 @@ class PokemonDetail extends React.Component {
       .then((response) => {
           
         this.setState({ pokemon: response });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      axios
+      .get(process.env.REACT_APP_BACKEND_URL + "api/user",{
+        withCredentials: true,
+      })
+      .then((response) => {
+            console.log("RESPONSE DB",response)
+        this.setState({ user: response.data });
       })
       .catch((error) => {
         console.log(error);
@@ -51,7 +75,7 @@ class PokemonDetail extends React.Component {
     return (
       <div >
           <FormFav pokemon={this.state.pokemon}/>
-          <FormTeam pokemon={this.state.pokemon}/>
+          <FormTeam pokemon={this.state.pokemon} user={this.state.user}/>
         <div >
           <img
             src={this.state.pokemon.data.sprites.front_default}

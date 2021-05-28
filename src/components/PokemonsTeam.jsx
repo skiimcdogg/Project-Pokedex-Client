@@ -5,6 +5,12 @@ class PokemonsTeam extends Component {
         team: null
       };
 
+      componentDidMount() {
+        console.log(this.props.team)
+  
+      this.setState({ team: this.props.team})
+    }
+
     render() {
         if (this.state.team === null) {
             return <div>You have no pokemon in your team yet</div>;
