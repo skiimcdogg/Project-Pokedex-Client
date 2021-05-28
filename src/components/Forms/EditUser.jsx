@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { withUser } from "../Auth/withUser";
+// import { withUser } from "../Auth/withUser";
+import { withRouter } from "react-router-dom";
 import axios from 'axios';
 
 class EditUser extends Component {
@@ -7,10 +8,18 @@ class EditUser extends Component {
     pseudo: "",
     email: "",
     id: "",
+    region:"",
+    avatar:""
   }
 
- 
+  handleImage = (event) => {
+    const file = event.target.files[0]; // Get the value of file input
+    
+    console.log(file, "this is the file");
+    this.setState({ avatar: file });
+   
 
+  };
   handleChange = (event) => {
     const name = event.target.name
     this.setState({ [name]: event.target.value })
@@ -23,22 +32,35 @@ class EditUser extends Component {
   componentDidMount() {
     // console.log(this.props.context.user)
 
-  this.setState({ email: this.props.context.user.email,
-                  pseudo: this.props.context.user.pseudo,
-                  region: this.props.context.user.region,
-                  id: this.props.context.user._id })
+  this.setState({ email: this.props.user.email,
+                  pseudo: this.props.user.pseudo,
+                  region: this.props.user.region,
+                  id: this.props.user._id,
+                   avatar:this.props.user.avatar 
+                })
 }
 
     handleSubmit = (event) => {
     // event.preventDefault()
+    const formUpdateData = new FormData();
 
+    formUpdateData.append("pseudo", this.state.pseudo);
+    formUpdateData.append("email", this.state.email);
+    formUpdateData.append("region", this.state.region);
+    formUpdateData.append("avatar", this.state.avatar);
+    
     let id = this.state.id
     axios
-      .patch(process.env.REACT_APP_BACKEND_URL + `api/user/edit/${id}`, {
-        pseudo: this.state.pseudo,
-        email: this.state.email,
-        region: this.state.region,
-        // avatar: this.state.avatar,
+      .patch(process.env.REACT_APP_BACKEND_URL + `api/user/edit/${id}`, 
+      // {
+      //   pseudo: this.state.pseudo,
+      //   email: this.state.email,
+      //   region: this.state.region,
+      //    avatar: this.state.avatar,
+      // }, 
+      formUpdateData,
+      {
+        withCredentials: true,
       })
       .then((response) => {
         console.log("------------",response.data)
@@ -50,7 +72,8 @@ class EditUser extends Component {
   }
 
   render() {
-      console.log(this.props.context.user._id)
+    console.log("avatar",this.state.avatar)
+      // console.log(this.props.context.user._id)
     // console.log(this.props.context.user)
     if (this.state.user === null) {
       return <div>Loading...</div>;
@@ -77,7 +100,7 @@ class EditUser extends Component {
           value={this.state.email}
         />
 
-    <label htmlFor="select">Region:</label>
+    <label >Region:</label>
         <select value={this.state.region} onChange={this.handleSelect}>
           <option value="Kanto">Kanto</option>
           <option value="Johto">Johto</option>
@@ -89,14 +112,14 @@ class EditUser extends Component {
           <option value="Galar">Galar</option>
         </select>
 
-    {/* <label>Avatar</label>
+    <label htmlFor="avatar">Avatar</label>
         <input
-          onChange={this.handleChange}
+          onChange={this.handleImage}
           name="avatar"
           type="file"
-          value={this.state.avatar}
-          placeholder="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/899c4dc5-bb82-45ae-a4ab-aa2d6bf0e4a0/dd0ea01-af1e8204-e412-4abb-8814-61fd8260dbe4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzg5OWM0ZGM1LWJiODItNDVhZS1hNGFiLWFhMmQ2YmYwZTRhMFwvZGQwZWEwMS1hZjFlODIwNC1lNDEyLTRhYmItODgxNC02MWZkODI2MGRiZTQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.VkvdSEQYAvd9kvpmKFBVxvjRyczrzVhCl0_wnjK6Qac"
-        alt="your-avatar"/> */}
+          id="avatar"
+          //  value={this.state.avatar}
+          />
 
         <button>Send</button>
 
@@ -105,4 +128,4 @@ class EditUser extends Component {
   }
 }
 
-export default withUser(EditUser);
+export default withRouter(EditUser);

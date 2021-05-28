@@ -27,7 +27,7 @@ class FavoritesPokemons extends Component {
       <div>
         <h1>Your favorites:</h1>
 
-        {this.props.favorites
+        {this.state.favorites
           .map((item, index) => <PokemonBoxFav key={index} pokemon={item}/>)
         }
       </div> 

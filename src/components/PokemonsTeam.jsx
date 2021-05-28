@@ -20,18 +20,9 @@ class PokemonsTeam extends Component {
     return (
       <div>
         <h1>Your team:</h1>
-        {/* {this.props.team.map((pokemon) => {
-                
-                return (
-                <div key={pokemon._id}>
-                  <h2>{pokemon.name} </h2>
-                  <img src={pokemon.image} alt=""/>
-                  <span>{pokemon.types} </span>
-                </div>
-                )} 
-              )} */}
+       
 
-        {this.props.team.map((item, index) => (
+        {this.state.team.map((item, index) => (
           <PokemonBoxTeam key={index} pokemon={item} />
         ))}
       </div>

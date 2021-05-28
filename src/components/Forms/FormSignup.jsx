@@ -19,6 +19,7 @@ class FormSignup extends Component {
   };
 
   selectFile = (event) => {
+    console.log(event.target.files[0])
     this.setState({ avatar: event.target.files[0] })
   }
 
@@ -28,7 +29,7 @@ class FormSignup extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    alert(`Fichier sélectionné - ${this.state.avatar}`);
+    // alert(`Fichier sélectionné - ${this.state.avatar}`);
 
     apiHandler
       .signup(this.state)
@@ -46,8 +47,8 @@ class FormSignup extends Component {
     }
 console.log(this.state);
     return (
-      <form onSubmit={this.handleSubmit} enctype="multipart/form-data">        
-        <label htmlFor="file">Avatar</label>
+      <form onSubmit={this.handleSubmit} encType="multipart/form-data">        
+        <label htmlFor="avatar">Avatar</label>
         <input
           onChange={this.selectFile}
           type="file"

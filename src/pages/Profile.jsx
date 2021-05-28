@@ -20,7 +20,7 @@ class Profile extends Component{
         withCredentials: true,
       })
       .then((response) => {
-            console.log("RESPONSE DB",response)
+            // console.log("RESPONSE DB",response)
         this.setState({ user: response.data });
       })
       .catch((error) => {
@@ -46,7 +46,7 @@ class Profile extends Component{
         </button>
         {this.state.formVisibile && (
           <div>
-            <EditUser handleDisplayFormFn={this.handleDisplayForm} />
+            <EditUser user={this.state.user} />
           </div>
         )}
         <PokemonsTeam team={this.state.user.pokeTeam}/>
