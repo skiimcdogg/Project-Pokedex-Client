@@ -51,6 +51,7 @@ class PokemonDetail extends React.Component {
       .catch((error) => {
         console.log(error);
       });
+      
       axios
       .get(process.env.REACT_APP_BACKEND_URL + "api/user",{
         withCredentials: true,

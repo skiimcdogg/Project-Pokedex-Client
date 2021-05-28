@@ -3,7 +3,7 @@ import axios from 'axios';
 
 class EditUser extends Component {
   state = {
-    name: ""
+    name: this.props.pokemon.name
     
   }
 
@@ -13,13 +13,16 @@ class EditUser extends Component {
   }
 
     handleSubmit = (event) => {
-    event.preventDefault()
-
+    // event.preventDefault()
+     console.log("clicked!")
+     console.log(this.props.pokemon._id)
     let id = this.props.pokemon._id
     axios
       .patch(process.env.REACT_APP_BACKEND_URL + `api/user/edit/${id}/pokemon`, {
         name: this.state.name,
        
+      },{
+        withCredentials: true,
       })
       .then((response) => {
         console.log(response.data)
@@ -31,7 +34,7 @@ class EditUser extends Component {
   }
 
   render() {
-    //   console.log(this.props.user._id)
+       console.log(this.props.pokemon)
       return(
     <form onSubmit={this.handleSubmit}>
         <h2>Edit your pokemon's name</h2>

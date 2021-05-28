@@ -1,32 +1,38 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import PokemonBoxFav from './PokemonBoxFav'
 
 class FavoritesPokemons extends Component {
-    state = {
-        favorites: null
-      };
+  state = {
+    favorites: null,
+    formVisibile: false
+  
+  };
 
-    render() {
-        if (this.state.favorites === null) {
-            return <div>You have no favorite Pokemon</div>;
-          }
+  componentDidMount() {
+    console.log(this.props.favorites);
 
-        return (
-            <div>
-                
-                  <h1>Your favorites:</h1>
-                  {this.props.team.map((pokemon) => {
-                
-                return (
-                <div key={pokemon._id}>
-                  <h2>{pokemon.name} </h2>
-                  <img src={pokemon.image} alt=""/>
-                </div>
-                )} 
-              )}
+    this.setState({ favorites: this.props.favorites });
+  }
 
-            </div>
-        )
+  handleDisplayForm = () => {
+    this.setState({ formVisibile: !this.state.formVisibile });
+  };
+
+  render() {
+    if (this.state.favorites === null) {
+      return <div>You have no favorite Pokemon</div>;
     }
+
+    return (
+      <div>
+        <h1>Your favorites:</h1>
+
+        {this.props.favorites
+          .map((item, index) => <PokemonBoxFav key={index} pokemon={item}/>)
+        }
+      </div> 
+    );
+  }
 }
 
 export default FavoritesPokemons;

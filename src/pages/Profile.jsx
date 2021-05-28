@@ -4,18 +4,28 @@ import UserDetail from './../components/UserDetail'
 import PokemonsTeam from './../components/PokemonsTeam'
 import FavoritesPokemons from './../components/FavoritesPokemons'
 import EditUser from './../components/Forms/EditUser'
-import { withUser } from "./../components/Auth/withUser"
+import axios from "axios";
+
 
 class Profile extends Component{
   state = {
     user: null,
-    formVisibile: false
+    formVisibile: false,
   };
 
   componentDidMount() {
       // console.log(this.props.context.user)
-
-    this.setState({ user: this.props.context.user})
+      axios
+      .get(process.env.REACT_APP_BACKEND_URL + "api/user",{
+        withCredentials: true,
+      })
+      .then((response) => {
+            console.log("RESPONSE DB",response)
+        this.setState({ user: response.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   handleDisplayForm = () => {
@@ -46,4 +56,4 @@ class Profile extends Component{
   }
 };
 
-export default withUser(Profile);
+export default Profile;
