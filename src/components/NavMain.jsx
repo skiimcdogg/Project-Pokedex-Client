@@ -22,8 +22,13 @@ const NavMain = (props) => {
   return (
     <nav className="NavMain">
       <NavLink exact to="/">
-        <h3 className="logo">App name</h3>
+        <h3 className="logo">Go back Home</h3>
       </NavLink>
+         ||
+      <NavLink exact to="/pokedex">
+        <h3 className="logo">Pokedex</h3>
+      </NavLink>
+
       <ul className="nav-list">
         {context.isLoggedIn && (
           <React.Fragment>
