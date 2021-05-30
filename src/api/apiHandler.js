@@ -23,6 +23,13 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
+ handleUpload(theFile) {
+   return service
+   .post('/api/auth/upload', theFile)
+   .then((res) => res.data)
+   .catch(errorHandler)
+ }, 
+
   signin(userInfo) {
     return service
       .post("/api/auth/signin", userInfo)

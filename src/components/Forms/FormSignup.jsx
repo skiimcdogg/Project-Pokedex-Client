@@ -18,10 +18,24 @@ class FormSignup extends Component {
     this.setState({ [key]: value });
   };
 
-  selectFile = (event) => {
-    console.log(event.target.files[0])
-    this.setState({ avatar: event.target.files[0] })
+  handleFileUpload = (event) => {
+    console.log("The file to be uploaded is: ", event.target.files[0]);
+
+    const uploadData = new FormData();
+    // imageUrl => this name has to be the same as in the model since we pass
+    // req.body to .create() method when creating a new thing in '/api/things/create' POST route
+    uploadData.append("avatar", event.target.files[0]);
+
+    apiHandler
+    .handleUpload(uploadData)
+    .then((response) => {
+      this.setState({ avatar: response.secure_url})
+    })
+    .catch((err) => {
+      console.log("File upload error:", err);
+    });
   }
+
 
   handleSelect = (event) => {
     this.setState({ region: event.target.value })
@@ -29,11 +43,11 @@ class FormSignup extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // alert(`Fichier sélectionné - ${this.state.avatar}`);
 
     apiHandler
       .signup(this.state)
       .then((data) => {
+        console.log("APIHANDLER signup",data);
         this.props.context.setUser(data);
       })
       .catch((error) => {
@@ -47,13 +61,11 @@ class FormSignup extends Component {
     }
 console.log(this.state);
     return (
-      <form onSubmit={this.handleSubmit} encType="multipart/form-data">        
+      <form onSubmit={this.handleSubmit}>        
         <label htmlFor="avatar">Avatar</label>
         <input
-          onChange={this.selectFile}
+          onChange={this.handleFileUpload}
           type="file"
-          id="avatar"
-          name="avatar"
         />
         <label htmlFor="pseudo">Pseudo</label>
         <input
@@ -91,7 +103,7 @@ console.log(this.state);
           name="password"
         />
 
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     );
   }
