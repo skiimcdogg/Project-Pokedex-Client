@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import FormFav from "../Forms/FormFav";
 import FormTeam from "../Forms/FormTeam";
-// import apiHandler from "../api/apiHandler";
+import apiHandler from "../../api/apiHandler";
 import { withRouter } from "react-router-dom";
 
 
@@ -13,11 +13,13 @@ class PokemonDetail extends React.Component {
   };
 
   componentDidMount() {
-    let id = this.props.match.params.id;
-    axios
-      .get(process.env.REACT_APP_BACKEND_URL + `api/pokemons/${id}`)
+     let id = this.props.match.params.id;
+       axios
+        .get(process.env.REACT_APP_BACKEND_URL + `api/pokemons/${id}`)
+    //   apiHandler
+    //  .getPokemonDetails(id)
       .then((response) => {
-          
+          console.log("RESPONSE", response)
         this.setState({ pokemon: response });
       })
       .catch((error) => {
@@ -28,9 +30,13 @@ class PokemonDetail extends React.Component {
     .get(process.env.REACT_APP_BACKEND_URL + "api/user",{
       withCredentials: true,
     })
+
+     apiHandler
+    .getUser()
     .then((response) => {
           console.log("RESPONSE DB",response)
-      this.setState({ user: response.data });
+      // this.setState({ user: response.data });
+      this.setState({ user: response });
     })
     .catch((error) => {
       console.log(error);

@@ -5,6 +5,7 @@ import PokemonsTeam from './../components/PokemonsTeam'
 import FavoritesPokemons from './../components/FavoritesPokemons'
 import EditUser from './../components/Forms/EditUser'
 import axios from "axios";
+import apiHandler from '../api/apiHandler'
 
 
 class Profile extends Component{
@@ -15,13 +16,16 @@ class Profile extends Component{
 
   componentDidMount() {
       // console.log(this.props.context.user)
-      axios
-      .get(process.env.REACT_APP_BACKEND_URL + "api/user",{
-        withCredentials: true,
-      })
+       apiHandler
+     .getUser()
+      // axios
+      // .get(process.env.REACT_APP_BACKEND_URL + "api/user",{
+      //   withCredentials: true,
+      // })
       .then((response) => {
-            // console.log("RESPONSE DB",response)
-        this.setState({ user: response.data });
+            console.log("RESPONSE DB",response)
+        // this.setState({ user: response.data });
+        this.setState({ user: response });
       })
       .catch((error) => {
         console.log(error);

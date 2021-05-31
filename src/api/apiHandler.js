@@ -51,13 +51,7 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
-  // getItems() {
-  //   return service
-  //     .get("/api/items")
-  //     .then((res) => res.data)
-  //     .catch(errorHandler);
-  // },
-
+ 
   getPokemons() {
     return service
       .get("/api/pokemons")
@@ -70,7 +64,23 @@ const apiHandler = {
       .get("/api/pokemons/types")
       .then((res) => res.data)
       .catch(errorHandler);
+  },
+
+  // getPokemonDetails(id) {
+  //   return service
+  //     .get(`/api/pokemons/${id}`)
+  //     .then((res) => res.data)
+  //     .catch(errorHandler);
+  // },
+
+  getUser() {
+    return service
+      .get("api/user")
+      .then((res) => res.data)
+      .catch(errorHandler);
   }
+
+
 };
 
 
