@@ -82,7 +82,42 @@ const apiHandler = {
 
   handleTeamSubmit(DataObject) {
     return service
-    .post('/api/auth/upload', DataObject)
+    .post('/api/pokemons/createTeam', DataObject)
+    .then((res) => res.data)
+    .catch(errorHandler)
+  },
+
+  handleFavSubmit(DataObject) {
+    return service
+    .post('api/pokemons/createFav', DataObject)
+    .then((res) => res.data)
+    .catch(errorHandler)
+  },
+
+  handleDeleteFav(id) {
+    return service
+    .delete(`/api/user/deleteFav/${id}/pokemon`)
+    .then((res) => res.data)
+    .catch(errorHandler)
+  },
+
+  handleDeleteTeam(id) {
+    return service
+    .delete(`/api/user/deleteTeam/${id}/pokemon`)
+    .then((res) => res.data)
+    .catch(errorHandler)
+  },
+
+  handleEditUser(id, DataObject) {
+    return service
+    .patch(`/api/user/edit/${id}`,DataObject)
+    .then((res) => res.data)
+    .catch(errorHandler)
+  },
+
+  handleEditPokemon(id, DataObject) {
+    return service
+    .patch(`/api/user/edit/${id}/pokemon`,DataObject)
     .then((res) => res.data)
     .catch(errorHandler)
   }

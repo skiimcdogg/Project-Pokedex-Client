@@ -4,7 +4,7 @@ import UserDetail from './../components/UserDetail'
 import PokemonsTeam from './../components/PokemonsTeam'
 import FavoritesPokemons from './../components/FavoritesPokemons'
 import EditUser from './../components/Forms/EditUser'
-import axios from "axios";
+// import axios from "axios";
 import apiHandler from '../api/apiHandler'
 
 

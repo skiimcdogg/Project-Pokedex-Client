@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import EditPokemon from "./Forms/EditPokemon";
-import axios from "axios";
+// import axios from "axios";
 import { withRouter } from "react-router-dom";
 import { withUser } from "./Auth/withUser";
+import apiHandler from "../api/apiHandler";
 
 class PokemonBoxTeam extends Component {
   state = {
@@ -21,15 +22,17 @@ class PokemonBoxTeam extends Component {
     console.log("ID FROM DELETE:", id);
     console.log("props", this.props);
 
-    axios
-      .delete(
-        process.env.REACT_APP_BACKEND_URL + `api/user/deleteTeam/${id}/pokemon`,
-        {
-          withCredentials: true,
-        }
-      )
+    // axios
+    //   .delete(
+    //     process.env.REACT_APP_BACKEND_URL + `api/user/deleteTeam/${id}/pokemon`,
+    //     {
+    //       withCredentials: true,
+    //     }
+    //   )
+    apiHandler
+      .handleDeleteTeam(id)
       .then((response) => {
-        // console.log(response.data);
+        // console.log(response);
 
         this.refreshPage();
       })

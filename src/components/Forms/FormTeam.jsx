@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import React from "react";
 import { withRouter } from "react-router-dom";
 import apiHandler from "../../api/apiHandler";
@@ -21,21 +21,23 @@ function FormTeam(props) {
   let handleSubmit = (event) => {
     event.preventDefault();
     console.log("handle submit is working");
-    const Body = {name: props.pokemon.name,
+    const Body = {
+      name: props.pokemon.name,
       height: props.pokemon.height,
       weight: props.pokemon.weight,
       image: props.pokemon.sprites.front_default,
       types: typesArray,
       stats: statsArray,
       base_stat: baseStatsArray,
-      moves: movesArray,}
+      moves: movesArray,
+    };
 
-      apiHandler
-      .handleTeamSubmit(Body) 
     // axios
     //   .post(
     //     process.env.REACT_APP_BACKEND_URL + "api/pokemons/createTeam",Body,{withCredentials: true,}
     //   )
+    apiHandler
+      .handleTeamSubmit(Body)
       .then((response) => {
         //REDIRECT FRONT END
         // props.history.push(`/profile`);
@@ -44,7 +46,6 @@ function FormTeam(props) {
         console.log("ERROR", error);
       });
   };
-
 
   console.log("context user", props.user);
 
@@ -56,7 +57,6 @@ function FormTeam(props) {
   } else {
     teamFull = true;
   }
-
 
   return (
     //  <div>salut bébé</div>

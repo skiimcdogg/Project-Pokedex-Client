@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+import apiHandler from "../../api/apiHandler";
 
 class EditUser extends Component {
   state = {
@@ -17,15 +18,20 @@ class EditUser extends Component {
      console.log("clicked!")
      console.log(this.props.pokemon._id)
     let id = this.props.pokemon._id
-    axios
-      .patch(process.env.REACT_APP_BACKEND_URL + `api/user/edit/${id}/pokemon`, {
-        name: this.state.name,
+    
+
+    // axios
+    //   .patch(process.env.REACT_APP_BACKEND_URL + `api/user/edit/${id}/pokemon`, {
+    //     name: this.state.name,
        
-      },{
-        withCredentials: true,
-      })
+    //   },{
+    //     withCredentials: true,
+    //   })
+
+      apiHandler
+      .handleEditPokemon(id, {name: this.state.name})
       .then((response) => {
-        console.log(response.data)
+        console.log(response)
         
       })
       .catch((error) => {
