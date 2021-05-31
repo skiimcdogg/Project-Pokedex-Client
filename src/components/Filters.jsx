@@ -14,11 +14,11 @@ class Filters extends Component {
     }
     return (
       <div>
-        <p>types</p>
+        <p>Select two types to filter pokemons</p>
         {this.props.types.results.map((type) => {
           return (
-            <div key={type.name}>
-              <label>{type.name}</label>
+            <div style={{display: "flex"}} key={type.name}>
+              <label><img src={`/images/${type.name}.png`} alt={`${type.name}`}/></label>
               <input
                 type="checkbox"
                 name={type.name}
