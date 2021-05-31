@@ -5,16 +5,16 @@ import { withRouter } from "react-router-dom";
 function FormFav (props) {
  
 
- let typesArray= props.pokemon.data.types.map((item)=>item.type.name)
+ let typesArray= props.pokemon.types.map((item)=>item.type.name)
  console.log(typesArray)
 
- let statsArray= props.pokemon.data.stats.map((item)=>item.stat.name)
+ let statsArray= props.pokemon.stats.map((item)=>item.stat.name)
  console.log(statsArray)
 
- let baseStatsArray= props.pokemon.data.stats.map((item)=>item.base_stat)
+ let baseStatsArray= props.pokemon.stats.map((item)=>item.base_stat)
  console.log(baseStatsArray)
 
- let movesArray= props.pokemon.data.moves.map((item)=>item.move.name)
+ let movesArray= props.pokemon.moves.map((item)=>item.move.name)
  console.log(movesArray)
 
  
@@ -27,10 +27,10 @@ function FormFav (props) {
 
     axios
       .post(process.env.REACT_APP_BACKEND_URL + "api/pokemons/createFav", {
-        name:props.pokemon.data.name,
-        height:props.pokemon.data.height,
-        weight:props.pokemon.data.weight,
-        image:props.pokemon.data.sprites.front_default,
+        name:props.pokemon.name,
+        height:props.pokemon.height,
+        weight:props.pokemon.weight,
+        image:props.pokemon.sprites.front_default,
         types:typesArray,
         stats:statsArray,
         base_stat:baseStatsArray,

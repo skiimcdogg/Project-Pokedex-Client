@@ -66,21 +66,26 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
-  // getPokemonDetails(id) {
-  //   return service
-  //     .get(`/api/pokemons/${id}`)
-  //     .then((res) => res.data)
-  //     .catch(errorHandler);
-  // },
+  getPokemonDetails(id) {
+    return service
+      .get(`/api/pokemons/${id}`)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
 
   getUser() {
     return service
       .get("api/user")
       .then((res) => res.data)
       .catch(errorHandler);
+  },
+
+  handleTeamSubmit(DataObject) {
+    return service
+    .post('/api/auth/upload', DataObject)
+    .then((res) => res.data)
+    .catch(errorHandler)
   }
-
-
 };
 
 
