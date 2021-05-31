@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 // import PokemonDetail from "./components/Views/PokemonDetail";
 import Pokedex from "./pages/Pokedex"
+import "./styles/pokedex.css"
 
 function App() {
   return (

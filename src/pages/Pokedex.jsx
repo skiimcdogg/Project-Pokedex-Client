@@ -82,10 +82,11 @@ class Pokedex extends React.Component {
           search={search}
           handleSearchFn={this.handleSearch}
         />
-        
+        <div className="pokemons-list"> 
         {newPokemonArray
           .map((item, index) => <PokemonsList key={index} pokemons={item}/>)
         }
+        </div>
 
         <Route exact path={"/pokedex/:id"} component={PokemonDetail} />
       </div>
