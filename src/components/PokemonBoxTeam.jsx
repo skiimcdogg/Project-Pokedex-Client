@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import EditPokemon from "./Forms/EditPokemon";
-// import axios from "axios";
 import { withRouter } from "react-router-dom";
 import { withUser } from "./Auth/withUser";
 import apiHandler from "../api/apiHandler";
@@ -8,53 +7,52 @@ import apiHandler from "../api/apiHandler";
 class PokemonBoxTeam extends Component {
   state = {
     formVisibile: false,
+    pokemon: this.props.pokemon,
+    name: this.props.pokemon.name
   };
 
   handleDisplayForm = () => {
     this.setState({ formVisibile: !this.state.formVisibile });
   };
 
-  refreshPage = () => {
-    window.location.reload(false);
-  };
+  handleChange = (valueFromChange) => {
+    this.setState({ name: valueFromChange })
+  }
 
-  deletePokemon = (id) => {
-    console.log("ID FROM DELETE:", id);
-    console.log("props", this.props);
+  handleSubmit = (event) => {
+    event.preventDefault()
+    let id = this.state.pokemon._id
 
-    // axios
-    //   .delete(
-    //     process.env.REACT_APP_BACKEND_URL + `api/user/deleteTeam/${id}/pokemon`,
-    //     {
-    //       withCredentials: true,
-    //     }
-    //   )
-    apiHandler
-      .handleDeleteTeam(id)
+      apiHandler
+      .handleEditPokemon(id, {name: this.state.name})
       .then((response) => {
-        // console.log(response);
-
-        this.refreshPage();
+        console.log(response)
+        this.setState({ pokemon: response })
+        this.handleDisplayForm()
       })
       .catch((error) => {
-        console.log(error);
-      });
-  };
+        console.log(error)
+      })
+  }
 
   render() {
     return (
       <div>
-        <h2>{this.props.pokemon.name} </h2>
-        <img src={this.props.pokemon.image} alt="" />
-        <button onClick={this.handleDisplayForm}>Update your infos</button>
+        <h2>{this.state.pokemon.name} </h2>
+        <img src={this.state.pokemon.image} alt="" />
+        <button onClick={this.handleDisplayForm}>Update</button>
         {this.state.formVisibile && (
           <div>
-            <EditPokemon pokemon={this.props.pokemon} />
+            <EditPokemon
+            name={this.state.name}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            />
           </div>
         )}
         <button
           className="button"
-          onClick={() => this.deletePokemon(this.props.pokemon._id)}
+          onClick={() => this.props.deletePokemon(this.state.pokemon._id)}
         >
           Delete
         </button>
