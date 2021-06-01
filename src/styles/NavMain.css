@@ -7,6 +7,11 @@
   height: 70px;
 }
 
+.first-div {
+  display: flex;
+  justify-content: space-between;
+}
+
 .NavMain .nav-list {
   margin-left: auto;
   display: flex;
@@ -14,4 +19,14 @@
 
 .NavMain .nav-list li:not(:last-child) {
   margin-right: 20px;
+}
+
+.profile-img {
+  max-height: 40px;
+  max-width: 40px;
+  border-radius: 50%;
+}
+
+.NavMain p {
+  cursor: pointer;
 }

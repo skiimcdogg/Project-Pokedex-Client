@@ -21,6 +21,7 @@ const NavMain = (props) => {
 
   return (
     <nav className="NavMain">
+      <div className="first-div">
       <NavLink exact to="/">
         <h3 className="logo">Go back Home</h3>
       </NavLink>
@@ -28,13 +29,15 @@ const NavMain = (props) => {
       <NavLink exact to="/pokedex">
         <h3 className="logo">Pokedex</h3>
       </NavLink>
+      </div>
 
       <ul className="nav-list">
         {context.isLoggedIn && (
           <React.Fragment>
             <li>
               <NavLink to="/profile">
-                {context.user && context.user.email}
+                {context.user && 
+               <img className="profile-img" src={context.user.avatar}/>}
               </NavLink>
             </li>
             <li>

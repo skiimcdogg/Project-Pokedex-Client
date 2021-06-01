@@ -15,13 +15,8 @@ class Profile extends Component{
   };
 
   componentDidMount() {
-      // console.log(this.props.context.user)
        apiHandler
      .getUser()
-      // axios
-      // .get(process.env.REACT_APP_BACKEND_URL + "api/user",{
-      //   withCredentials: true,
-      // })
       .then((response) => {
             console.log("RESPONSE DB",response)
         // this.setState({ user: response.data });
