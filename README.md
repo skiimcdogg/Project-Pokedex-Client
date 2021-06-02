@@ -9,7 +9,7 @@ They can create their profile with a cool avatar and then sift through 900 pokem
 They can even rename their Pokemon if they're feeling creative ;)
 
 Second, we wanted to learn new things and keep on improving our freshly acquired Ironhack skills!
-The filters component was a wonderful challenge for us, as we wanted users to be able to see pokemons filterd by Types. So they could be able to select 2 types at once and still be able to use our search bar
+The Filters component was a wonderful challenge for us, as we wanted users to be able to see pokemons filterd by Types. So they could be able to select 2 types at once and still be able to use our search bar
 
 We also were passionate about learning TDD and our goal is to test our entire API with Mocha.
 
