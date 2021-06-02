@@ -1,104 +1,32 @@
-import React, { Component } from "react";
-// import { withUser } from "../Auth/withUser";
+import React from "react";
 import { withRouter } from "react-router-dom";
-// import axios from 'axios';
-import apiHandler from "../../api/apiHandler";
 
-class EditUser extends Component {
-  state = {
-    pseudo: "",
-    email: "",
-    id: "",
-    region: "",
-    avatar: "",
-  };
-
-  handleImage = (event) => {
-    const file = event.target.files[0]; // Get the value of file input
-
-    console.log(file, "this is the file");
-    this.setState({ avatar: file });
-  };
-  handleChange = (event) => {
-    const name = event.target.name;
-    this.setState({ [name]: event.target.value });
-  };
-
-  handleSelect = (event) => {
-    this.setState({ region: event.target.value });
-  };
-
-  componentDidMount() {
-    // console.log(this.props.context.user)
-
-    this.setState({
-      email: this.props.user.email,
-      pseudo: this.props.user.pseudo,
-      region: this.props.user.region,
-      id: this.props.user._id,
-      avatar: this.props.user.avatar,
-    });
-  }
-
-  handleSubmit = (event) => {
-    // event.preventDefault()
-    const formUpdateData = new FormData();
-
-    formUpdateData.append("pseudo", this.state.pseudo);
-    formUpdateData.append("email", this.state.email);
-    formUpdateData.append("region", this.state.region);
-    formUpdateData.append("avatar", this.state.avatar);
-
-    let id = this.state.id;
-    
-    // axios
-    //   .patch(process.env.REACT_APP_BACKEND_URL + `api/user/edit/${id}`,
-    //   formUpdateData,
-    //   {
-    //     withCredentials: true,
-    //   })
-    apiHandler
-      .handleEditUser(id, formUpdateData)
-      .then((response) => {
-        console.log("------------", response);
-        this.props.context.setUser(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  render() {
-    console.log("avatar", this.state.avatar);
-    // console.log(this.props.context.user._id)
-    // console.log(this.props.context.user)
-    if (this.state.user === null) {
-      return <div>Loading...</div>;
-    }
+const EditUser = (props) => {
+  
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={props.handleSubmit}>
         <h2>Edit your profile</h2>
 
         <label htmlFor="pseudo">Pseudo</label>
         <input
-          onChange={this.handleChange}
+          onChange={props.handleChange}
           name="pseudo"
           type="text"
           id="pseudo"
-          value={this.state.pseudo}
+          value={props.pseudo}
         />
 
         <label htmlFor="email">Mail</label>
         <input
-          onChange={this.handleChange}
+          onChange={props.handleChange}
           name="email"
           type="email"
           id="email"
-          value={this.state.email}
+          value={props.email}
         />
 
         <label>Region:</label>
-        <select value={this.state.region} onChange={this.handleSelect}>
+        <select value={props.region} onChange={props.handleSelect}>
           <option value="Kanto">Kanto</option>
           <option value="Johto">Johto</option>
           <option value="Hoenn">Hoenn</option>
@@ -111,17 +39,14 @@ class EditUser extends Component {
 
         <label htmlFor="avatar">Avatar</label>
         <input
-          onChange={this.handleImage}
+          onChange={props.handleImage}
           name="avatar"
           type="file"
           id="avatar"
-          //  value={this.state.avatar}
         />
-
         <button>Send</button>
       </form>
     );
-  }
 }
 
 export default withRouter(EditUser);

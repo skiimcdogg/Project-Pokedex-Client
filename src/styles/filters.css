@@ -1,19 +1,39 @@
+h3 {
+    padding: 10px;
+}
+
 .filter-box {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
-input[type="checkbox"] {
-    visibility: hidden;
-    padding: 10px;
-    margin: 10px;
+.filter {
+    margin: 5px;
 }
 
 label {
-  cursor: pointer;
+    display: flex;
 }
 
-input[type="checkbox"]:checked {
-    visibility: visible;
+label img {
+    cursor: pointer;
+    width: 80%;
 }
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.tick {
+    color: green;
+    font-weight: bold;
+}
+
+.message {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    margin: 5px;
+}
+

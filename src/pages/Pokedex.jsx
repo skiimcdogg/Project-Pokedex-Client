@@ -47,14 +47,14 @@ class Pokedex extends React.Component {
       // console.log("SALUT BÉBÉ");
       const array = this.state.typesChecked;
       array.push(target.name);
-      console.log(array);
+      // console.log(array);
       this.setState({ typesChecked: array });
     } else {
       // console.log("BYE LE GROS");
       const array = this.state.typesChecked;
       const toRemove = array.indexOf(target.name);
       array.splice(toRemove, 1);
-      console.log(array);
+      // console.log(array);
       this.setState({ typesChecked: array });
     }
   };
@@ -74,10 +74,17 @@ class Pokedex extends React.Component {
     if (this.state.pokemons === []) {
       return <div>Loading...</div>;
     }
+
     return (
       <div>
         <NavMain />
-        <Filters types={types} handleChangeInput={this.handleChangeInput} />
+        <Filters types={types} handleChangeInput={this.handleChangeInput} checkedArr={typesChecked} />
+        { this.state.typesChecked.length === 3 &&(
+          <p className="message">Please select only two types at once</p>
+        )}
+        { newPokemonArray.length === 0 &&(
+          <p className="message">No match</p>
+        )}
         <FilterSearchBar
           search={search}
           handleSearchFn={this.handleSearch}
