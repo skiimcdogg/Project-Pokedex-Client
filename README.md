@@ -1,95 +1,57 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# pokedex (CLIENT SIDE) 
 
-In the project directory, you can run:
+## Why Pokedex?
 
-### `npm start`
+First we wanted to create a fun app for Pokedex lovers around the world.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+They can create their profile with a cool avatar and then sift through 900 pokemons and choose both their team (6 pokemons only) and their favorites (as many as you want!!)
+They can even rename their Pokemon if they're feeling creative 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Second, we wanted to learn new things and keep on improving our freshly acquired Ironhack skills!
+The filters component was a wonderful challenge for us, as we wanted users to be able to see pokemons filterd by Types. So they could be able to select 2 types at once and still be able to use our search bar
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+We also were passionate about learning TDD and our goal is to test our entire API with Mocha.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Test our Pokedex!
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+You can fork our repo and test our app with these credentials!
+(Username: Admin, Password: 1234)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+It will be deployed very soon ;)
 
-### `npm run eject`
+<!-- ### [Test our app here](herokuapp) -->
+<!-- ![](gif here) -->
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Tech stack
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Client      |     
+|:-----------:|
+| React.js    |  
+|   CSS       |  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+| Server       |  
+|:------------:|
+|  Node.js     |
+|  Express.js  |
+|  MongoDB     |
+|  Mocha/chai  |
 
-## Learn More
+### [Server side available here](https://github.com/skiimcdogg/Project-Paris-Server)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Coded with love by:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Pauline Bellaud - [here](https://github.com/Iron-Popi)
 
-### Code Splitting
+Claire Sayart - [here](https://github.com/clsayart)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Antoine Stouff - [here](https://github.com/skiimcdogg)
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
-<!-- Toutes les données à gérer dans l'application: 
-- Liste des pokémons / props
-- Texte saisi par l'utilisateur et cases cochés filtres / Etat
-- Détail et box des pokemon / props
-- Team de pokemon / Etat
-- Les pokemons favoris / Etat
-- Le composant pokedex qui recoit d'autres composants / Etat
-- Detail profile / Etat
-
-Pour savoir de quoi sera composé l'état :
-
-- Est-elle passée depuis un parent via les props ? Si oui, ce n’est probablement pas de l’état.
-- Est-elle figée dans le temps ? Si oui, ce n’est probablement pas de l’état.
-- Pouvez-vous la calculer en vous basant sur le reste de l’état ou les props de votre composant ? Si oui, ce n’est pas de l’état.
-
-Qui possèdera l'état ?
-1 trouver LES composants qui afficheront quelque chose en fonction de cet état
-2 Trouver l'ancêtre commun de ces composants qui à besoin de cet état
-3 Si aucun composant n'est trouvé, IL FAUT EN CREER UN
-
-DONC
-- PokemonList affiche les données filtrées en fonction de l'état de la SearchBar
-- Leur ancêtre commun est Pokedex.jsx il contiendra donc l'état du filtre ainsi que les cases à cocher pour le filtre
-
-Il faut ensuite faire descendre via les props le state (a la liste) et les fonctions pour modifier le state a la searchbar.
- -->
