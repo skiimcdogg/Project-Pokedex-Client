@@ -18,3 +18,8 @@ a {
 ul {
   list-style-type: none;
 }
+
+.home-page {
+  background-color: rgb(17, 127, 167);
+  z-index: -1;
+}

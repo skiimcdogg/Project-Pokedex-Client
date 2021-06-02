@@ -18,44 +18,49 @@ const NavMain = (props) => {
         console.log(error);
       });
   }
-
+// rgb(17, 127, 167)
   return (
-    <nav className="NavMain">
+    <nav className="nav-main">
       <div className="first-div">
-      <NavLink exact to="/">
-        <h3 className="logo">Go back Home</h3>
-      </NavLink>
-         ||
-      <NavLink exact to="/pokedex">
-        <h3 className="logo">Pokedex</h3>
-      </NavLink>
+        <NavLink exact to="/">
+          <h3 className="link-home">Home</h3>
+        </NavLink>
+        ||
+        <NavLink exact to="/pokedex">
+          <h3 className="link-pokedex">Pokedex</h3>
+        </NavLink>
       </div>
-
-      <ul className="nav-list">
-        {context.isLoggedIn && (
-          <React.Fragment>
-            <li>
-              <NavLink to="/profile">
-                {context.user && 
-               <img className="profile-img" src={context.user.avatar}/>}
-              </NavLink>
-            </li>
-            <li>
-              <p onClick={handleLogout}>Logout</p>
-            </li>
-          </React.Fragment>
-        )}
-        {!context.isLoggedIn && (
-          <React.Fragment>
-            <li>
-              <NavLink to="/signin">Log in</NavLink>
-            </li>
-            <li>
-              <NavLink to="/signup">Create account</NavLink>
-            </li>
-          </React.Fragment>
-        )}
-      </ul>
+      <div className="singnin-signup">
+        <ul className="nav-list">
+          {context.isLoggedIn && (
+            <React.Fragment>
+              <li>
+                <NavLink to="/profile">
+                  {context.user && (
+                    <img className="profile-img" src={context.user.avatar} />
+                  )}
+                </NavLink>
+              </li>
+              <li>
+                <p className="logout" onClick={handleLogout}>Logout</p>
+              </li>
+            </React.Fragment>
+          )}
+          <div className="signin-snippet">
+          {!context.isLoggedIn && (
+            <React.Fragment>
+              <li>
+              <p className="account"> <NavLink to="/signin">Log in</NavLink> </p> 
+              </li>
+             <b>||</b> 
+              <li>
+               <NavLink to="/signup">Create account</NavLink>
+              </li>
+            </React.Fragment>
+          )}
+          </div>
+        </ul>
+      </div>
     </nav>
   );
 };

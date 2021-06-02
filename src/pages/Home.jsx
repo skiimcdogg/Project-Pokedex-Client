@@ -7,7 +7,9 @@ class Home extends React.Component {
     return (
       <div>
         <NavMain />
+      <div className="home-page">
         <h1>Home Page ∆</h1>
+      </div>
         <Footer />
       </div>
     );
