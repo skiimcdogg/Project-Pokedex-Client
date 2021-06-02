@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../styles/filters.css";
 
 class Filters extends Component {
   state = {
@@ -15,20 +16,23 @@ class Filters extends Component {
     return (
       <div>
         <p>Select two types to filter pokemons</p>
+        <div className="filter-box">
         {this.props.types.results.map((type) => {
           return (
-            <div style={{display: "flex"}} key={type.name}>
-              <label><img src={`/images/${type.name}.png`} alt={`${type.name}`}/></label>
+            <div className="filter" key={type.name}>
+              <label htmlFor={type.name}><img src={`/images/${type.name}.png`} alt={`${type.name}`}/></label>
               <input
+                id={type.name}
                 type="checkbox"
                 name={type.name}
                 onChange={this.handleChange}
               />
             </div>
-          );
+          )
         })}
+        </div>
       </div>
-    );
+    )
   }
 }
 

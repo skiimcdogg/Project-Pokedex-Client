@@ -1,0 +1,19 @@
+.filter-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+input[type="checkbox"] {
+    visibility: hidden;
+    padding: 10px;
+    margin: 10px;
+}
+
+label {
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    visibility: visible;
+}
