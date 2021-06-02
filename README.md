@@ -3,7 +3,7 @@
 
 ## Why Pokedex?
 
-First we wanted to create a fun app for Pokedex lovers around the world.
+First we wanted to create a fun app for Pokedex lovers around the world!
 
 They can create their profile with a cool avatar and then sift through 900 pokemons and choose both their team (6 pokemons only) and their favorites (as many as you want!!).
 They can even rename their Pokemon if they're feeling creative ;)
@@ -23,13 +23,14 @@ We ask for your patience, it will be deployed very soon ;)
 | Client      | Server       |     
 |:-----------:|:------------:|
 | React.js    | Node.js      |
-|   CSS       |  Express.js  |
-              |  MongoDB     |
-              |  Mocha/chai  |
+|   CSS       | Express.js   |
+|             | MongoDB      |
+|             | Mocha/chai   |
+
 
 ## Server side
 
-### Check it out [here!](https://github.com/skiimcdogg/Project-Paris-Server)
+#### Check it out [here!](https://github.com/skiimcdogg/Project-Paris-Server)
 
 ## Coded with love by:
 
