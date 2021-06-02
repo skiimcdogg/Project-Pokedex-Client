@@ -20,16 +20,16 @@ We ask for your patience, it will be deployed very soon ;)
 
 ## Tech stack
 
-| Client      |  | Server       |     
-|:-----------:|  |:------------:|
-| React.js    |  |  Node.js     |
-|   CSS       |  |  Express.js  |
-                 |  MongoDB     |
-                 |  Mocha/chai  |
+| Client      | Server       |     
+|:-----------:|:------------:|
+| React.js    | Node.js      |
+|   CSS       |  Express.js  |
+              |  MongoDB     |
+              |  Mocha/chai  |
 
-## Checkout our Server side
+## Server side
 
-### [here!](https://github.com/skiimcdogg/Project-Paris-Server)
+### Check it out [here!](https://github.com/skiimcdogg/Project-Paris-Server)
 
 ## Coded with love by:
 
