@@ -11,11 +11,7 @@ function PokemonsList(props) {
         <img src={props.pokemons.sprites.front_default} alt="" />
       </Link>
       <p className="name">{props.pokemons.name}</p>
-      <div className="types">
-      {props.pokemons.types.map((item) => (
-          <p key={item.type.name}>{item.type.name}</p>
-          ))}
-          </div>
+      <p className="id">#{props.pokemons.id}</p>
     </div>
   );
 }
