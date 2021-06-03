@@ -14,7 +14,7 @@ class Filters extends Component {
     }
     return (
       <div>
-        <h3>Filters:</h3>
+        {/* <h3>Filters:</h3> */}
         <div className="filter-box">
         {this.props.types.results.map((type) => {
           return (

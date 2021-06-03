@@ -6,10 +6,12 @@ h3 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding-top: 30px;
 }
 
 .filter {
-    margin: 5px;
+    margin: 4px; 
+    /* margin-top: 5px; */
 }
 
 label {
@@ -18,11 +20,13 @@ label {
 
 label img {
     cursor: pointer;
-    width: 80%;
+    width: 70%;
 }
 
 input[type="checkbox"] {
     display: none;
+    /* visibility: hidden; */
+    width: 1px;
 }
 
 .tick {

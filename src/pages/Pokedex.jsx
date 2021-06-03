@@ -78,6 +78,8 @@ class Pokedex extends React.Component {
     return (
       <div>
         <NavMain />
+        <div className="flex-filters">
+          <div>
         <Filters types={types} handleChangeInput={this.handleChangeInput} checkedArr={typesChecked} />
         { this.state.typesChecked.length === 3 &&(
           <p className="message">Please select only two types at once</p>
@@ -85,10 +87,15 @@ class Pokedex extends React.Component {
         { newPokemonArray.length === 0 &&(
           <p className="message">No match</p>
         )}
+        </div>
+
+        <div className="flex-search">
         <FilterSearchBar
           search={search}
           handleSearchFn={this.handleSearch}
         />
+        </div>
+        </div>
         <div className="pokemons-list"> 
         {newPokemonArray
           .map((item, index) => <PokemonsList key={index} pokemons={item}/>)
