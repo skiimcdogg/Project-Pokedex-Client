@@ -10,6 +10,8 @@
   padding-bottom: 2%;
   color: rgb(247,232,161);
   box-shadow: 0 4px 20px -2px rgb(235,128,76);
+  max-height: 90px;
+  max-height: 90px;
 }
 
 .profile-img {
@@ -17,11 +19,13 @@
   height: 100%;
   border-radius: 50%;
   padding-right: 1%;
+  
 }
 
 .first-div {
   display: flex;
   align-items: center;
+  font-size: 120%;
 }
 
 .logout {
@@ -34,6 +38,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: 120%;
 }
 
 .nav-list > li {
@@ -48,4 +53,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.pokeball-logo {
+  display: flex;
+  align-items: center;
+  cursor: auto;
+  text-decoration: inherit;
+}
+
+.pokeball-logo img {
+  width: 14%;
+  cursor: pointer;
+}
+
+.link-pokedex {
+  cursor:pointer;
 }

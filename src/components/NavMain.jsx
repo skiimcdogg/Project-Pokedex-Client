@@ -4,6 +4,10 @@ import { withUser } from "../components/Auth/withUser";
 import apiHandler from "../api/apiHandler";
 
 import "../styles/NavMain.css";
+// import pokeballLogo1 from "./../styles/images/Pokeball-logo.png"
+// import pokeballLogo2 from "./../styles/images/pokeball-logo-2.png"
+// import pokeballLogo3 from "./../styles/images/pokeball-logo-3.png"
+import pokedexLogo from "./../styles/images/pokedex-logo.png"
 
 const NavMain = (props) => {
   const { context } = props;
@@ -18,7 +22,6 @@ const NavMain = (props) => {
         console.log(error);
       });
   }
-// rgb(17, 127, 167)
   return (
     <nav className="nav-main">
       <div className="first-div">
@@ -27,9 +30,14 @@ const NavMain = (props) => {
         </NavLink>
         ||
         <NavLink exact to="/pokedex">
+        <div className="pokeball-logo">
           <h3 className="link-pokedex">Pokedex</h3>
+            
+            <img  src={pokedexLogo}/>
+            </div>
         </NavLink>
       </div>
+      
       <div className="singnin-signup">
         <ul className="nav-list">
           {context.isLoggedIn && (
