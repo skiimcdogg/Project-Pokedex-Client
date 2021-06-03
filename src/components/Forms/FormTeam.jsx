@@ -6,16 +6,16 @@ import { withUser } from "../Auth/withUser";
 
 function FormTeam(props) {
   let typesArray = props.pokemon.types.map((item) => item.type.name);
-  console.log(typesArray);
+  // console.log(typesArray);
 
   let statsArray = props.pokemon.stats.map((item) => item.stat.name);
-  console.log(statsArray);
+  // console.log(statsArray);
 
   let baseStatsArray = props.pokemon.stats.map((item) => item.base_stat);
-  console.log(baseStatsArray);
+  // console.log(baseStatsArray);
 
   let movesArray = props.pokemon.moves.map((item) => item.move.name);
-  console.log(movesArray);
+  // console.log(movesArray);
 
   //WHEN USER CLICKS ON SUBMIT SENDS THE DATA TO THE DATABASE THROUGH AXIOS CALL
   let handleSubmit = (event) => {
@@ -47,7 +47,7 @@ function FormTeam(props) {
       });
   };
 
-  console.log("context user", props.user);
+  // console.log("context user", props.user);
 
   let teamFull;
   if (props.user === null) {

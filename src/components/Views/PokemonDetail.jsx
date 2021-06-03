@@ -17,8 +17,9 @@ class PokemonDetail extends React.Component {
     apiHandler
       .getPokemonDetails(id)
       .then((response) => {
-        console.log("RESPONSE", response);
+        // console.log("RESPONSE", response);
         this.setState({ pokemon: response });
+        this.props.handleDetailClick()
       })
       .catch((error) => {
         console.log(error);
@@ -28,7 +29,7 @@ class PokemonDetail extends React.Component {
     apiHandler
       .getUser()
       .then((response) => {
-        console.log("RESPONSE DB", response);
+        // console.log("RESPONSE DB", response);
         // this.setState({ user: response.data });
         this.setState({ user: response });
       })
@@ -54,7 +55,7 @@ class PokemonDetail extends React.Component {
         apiHandler
         .getUser()
         .then((response) => {
-          console.log("RESPONSE DB", response);
+          // console.log("RESPONSE DB", response);
           this.setState({ user: response });
         })
         .catch((error) => {
@@ -64,19 +65,21 @@ class PokemonDetail extends React.Component {
   }
 
   render() {
-    console.log("YOUR POKEMON", this.state.pokemon);
+    // console.log("YOUR POKEMON", this.state.pokemon);
     if (this.state.pokemon === null) {
       return <div>Loading...</div>;
     }
     return (
       <div className="pokemon-card">
+        
           <img
             src={this.state.pokemon.sprites.front_default}
             alt={this.state.pokemon.name}
           />
+          
           <h2 className="single-pokemon">{this.state.pokemon.name}</h2>
 
-          <div className="types">
+          <div className="pokemon-types">
           {this.state.pokemon.types.map((item, index) => (
             <p key={index}>{item.type.name}</p>
           ))}

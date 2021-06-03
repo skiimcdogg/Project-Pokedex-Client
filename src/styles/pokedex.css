@@ -11,10 +11,17 @@
   align-items: center;
   margin: 1%;
   margin-top: 4%;
+  border-radius: 15px;
+  /* background-color: rgba(218,218,218,0.5); */
+}
+
+.pokemon-image {
+   background-color: #f2f2f2; 
+   border-radius: 15px;
 }
 
 .one-pokemon:hover {
-  background-color: rgb(218,218,218);
+  background-color: #f2f2f2;
 }
 
 .types {

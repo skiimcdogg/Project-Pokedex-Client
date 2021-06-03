@@ -8,10 +8,13 @@ function PokemonsList(props) {
   return (
     <div className="one-pokemon">
       <Link to={`/pokedex/${props.pokemons.id}`}>
+        <div className="pokemon-image">
         <img src={props.pokemons.sprites.front_default} alt="" />
+        </div>
+        <p className="name">{props.pokemons.name}</p>
+        <p className="id">#{props.pokemons.id}</p>
       </Link>
-      <p className="name">{props.pokemons.name}</p>
-      <p className="id">#{props.pokemons.id}</p>
+      
     </div>
   );
 }
