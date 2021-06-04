@@ -6,6 +6,8 @@ import FavoritesPokemons from './../components/FavoritesPokemons'
 import EditUser from './../components/Forms/EditUser'
 import apiHandler from '../api/apiHandler'
 
+import "./../styles/profile.css"
+
 class Profile extends Component{
   state = {
     user: null,

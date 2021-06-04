@@ -1,17 +1,20 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class UserDetail extends Component {
-    render() {
+import "./../styles/userDetail.css"
+
+function UserDetail(props) {
+
+    const { avatar, pseudo, region, email } = props.user;
+
         return (
-            <div>
-                  <h1>Welcome to your page</h1>
-                  <img src={this.props.user.avatar} alt=""/>
-                  <h2>{this.props.user.pseudo}</h2>
-                  <h3>{this.props.user.region}</h3>
-                  <p>{this.props.user.email}</p>
+            <div className="all-details">
+                  <h1>Welcome to your profile {pseudo} !</h1>
+                  <img className="img-profile" src={avatar} alt="your profile's image"/>
+                  <h3>Region: {region}</h3>
+                  <p>Your email: {email}</p>
             </div>
         )
-    }
+    
 }
 
 export default UserDetail;
