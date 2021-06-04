@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter, Redirect } from "react-router-dom";
 import { withUser } from "../Auth/withUser";
 import apiHandler from "../../api/apiHandler";
+import  "../../styles/form.css"
 
 class FormSignup extends Component {
   state = {
@@ -61,22 +62,26 @@ class FormSignup extends Component {
     }
 console.log(this.state);
     return (
-      <form onSubmit={this.handleSubmit}>        
-        <label htmlFor="avatar">Avatar</label>
+      <div className="form-container">
+      <form className="form" onSubmit={this.handleSubmit}>        
+        <label htmlFor="avatar" className="avatar">Upload Avatar</label>
         <input
+          id="avatar"
           onChange={this.handleFileUpload}
           type="file"
         />
-        <label htmlFor="pseudo">Pseudo</label>
+        <label className="label" htmlFor="pseudo">Pseudo</label>
         <input
+        className="input"
           onChange={this.handleChange}
           value={this.state.pseudo}
           type="text"
           id="pseudo"
           name="pseudo"
+          placeholder="your pseudo..."
         />
-        <label htmlFor="select">Region:</label>
-        <select value={this.state.region} onChange={this.handleSelect}>
+        <label className="label" htmlFor="select">Region:</label>
+        <select className="input" value={this.state.region} onChange={this.handleSelect}>
           <option value="Kanto">Kanto</option>
           <option value="Johto">Johto</option>
           <option value="Hoenn">Hoenn</option>
@@ -87,24 +92,30 @@ console.log(this.state);
           <option value="Galar">Galar</option>
         </select>
 
-        <label htmlFor="email">Email</label>
+        <label className="label" htmlFor="email">Email</label>
         <input
+        className="input"
           onChange={this.handleChange}
           type="email"
           id="email"
           name="email"
+          placeholder="your email..."
+          
         />
-        <label htmlFor="password">Password</label>
+        <label className="label" htmlFor="password">Password</label>
         <input
+        className="input"
           onChange={this.handleChange}
           value={this.state.password}
           type="password"
           id="password"
           name="password"
+          placeholder="your password..."
         />
 
-        <button type="submit">Submit</button>
+        <button className="btn" type="submit">Submit</button>
       </form>
+      </div>
     );
   }
 }
