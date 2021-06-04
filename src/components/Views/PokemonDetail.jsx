@@ -1,4 +1,4 @@
-import React,{ Fragment } from "react";
+import React from "react";
 import FormFav from "../Forms/FormFav";
 import FormTeam from "../Forms/FormTeam";
 import apiHandler from "../../api/apiHandler";
@@ -65,10 +65,10 @@ class PokemonDetail extends React.Component {
   }
 
   render() {
-    // console.log("YOUR POKEMON", this.state.pokemon);
     if (this.state.pokemon === null) {
       return <div>Loading...</div>;
     }
+    const convertWeight = Number(this.state.pokemon.weight) / 10;
     return (
       <div className="pokemon-card">
         
@@ -81,29 +81,36 @@ class PokemonDetail extends React.Component {
 
           <div className="pokemon-types">
           {this.state.pokemon.types.map((item, index) => (
-            <p key={index}>{item.type.name}</p>
+            <span key={index}>{item.type.name}</span>
           ))}
           </div>
 
-          <p className="pokemon-height">height: {this.state.pokemon.height}</p>
-          <p className="pokemon-weight">weight: {this.state.pokemon.weight} </p>
+          <div className="height-weight">
+          <p><b>height:</b> {this.state.pokemon.height}0cm</p>
+          <p><b>weight:</b> {convertWeight}kg</p>
+          </div>
+
+        <hr/>
 
           <div className="pokemon-stats">
             <div>
-          {this.state.pokemon.stats.map((item, index) => (
-            <p key={index}>{item.stat.name}</p>
-          ))}
-           </div>
+            {this.state.pokemon.stats.map((item, index) => (
+            <p key={index}><span>{item.stat.name}</span></p>
+            ))}
+            </div>
 
-           <div>
-          {this.state.pokemon.stats.map((item, index) => (
+            <div>
+            {this.state.pokemon.stats.map((item, index) => (
             <p key={index}>{item.base_stat}</p>
-          ))}
-          </div>
+            ))}
+            </div>
           </div>
 
+        <div className="pokemon-btns">
         <FormFav pokemon={this.state.pokemon} />
         <FormTeam pokemon={this.state.pokemon} user={this.state.user} />
+        </div>
+
       </div>
     );
   }

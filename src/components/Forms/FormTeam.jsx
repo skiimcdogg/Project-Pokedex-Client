@@ -66,7 +66,7 @@ function FormTeam(props) {
           <form onSubmit={handleSubmit} encType="multipart/form-data">
             {/* ENCTYPE MULTIPART HANDLES FILE UPLOAD  */}
             <div>
-              <button>Submit Team</button>
+              <button>TEAM</button>
             </div>
           </form>
         )}
