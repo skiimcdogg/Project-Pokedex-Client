@@ -49,7 +49,7 @@ function FormFav(props) {
     <form onSubmit={handleSubmit} encType="multipart/form-data">
       {/* ENCTYPE MULTIPART HANDLES FILE UPLOAD  */}
       <div>
-        <button>Submit Fav</button>
+        <button>FAVORITE</button>
       </div>
     </form>
   );

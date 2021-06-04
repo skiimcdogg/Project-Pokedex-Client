@@ -1,0 +1,50 @@
+.random-container{
+    display: flex;
+   justify-content: center;
+    max-width: 100%;
+    margin:auto;
+    height:100%;
+    
+  }
+
+  .pokemon-random-card {
+    margin: auto;
+    background-color: #f2f2f2; 
+    padding: 1% 0;
+    border-radius: 15px;
+    border: solid 2px grey;
+    width: 21%;
+    height: 55%;
+}
+
+.single-pokemon-random {
+    text-align: center;
+    /* margin-bottom: 3%; */
+
+}
+
+.pokemon-random-card img {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width:50%;
+}
+
+.random-height-weight {
+    display: flex;
+    justify-content: space-around;
+    position:relative;
+    padding: 15% 0 1% 0;
+}
+
+.random-pokemon-types {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 13% 0 1% 0;
+
+}
+
+.random-pokemon-types img {
+    width:80%;
+
+}
