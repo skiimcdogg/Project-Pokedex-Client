@@ -1,20 +1,22 @@
 import React from "react";
 
-import "./../../styles/pokemonBox.css"
+import "./../../styles/pokemonBox.css";
 
 const EditPokemon = (props) => {
+  const { handleSubmit, name, handleChange } = props;
+
   return (
-    <form className="edit-pokemon" onSubmit={props.handleSubmit}>
+    <form className='edit-pokemon' onSubmit={handleSubmit}>
       <h2>Edit name</h2>
-      <label htmlFor="name">Name</label>
+      <label htmlFor='name'>Name</label>
       <input
-        onChange={(event) => props.handleChange(event.target.value)}
-        name="name"
-        type="text"
-        value={props.name}
-        id="name"
+        onChange={(event) => handleChange(event.target.value)}
+        name='name'
+        type='text'
+        value={name}
+        id='name'
       />
-      <button className="style-btn">Send</button>
+      <button className='style-btn'>Send</button>
     </form>
   );
 };

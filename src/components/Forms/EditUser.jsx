@@ -25,7 +25,11 @@ const EditUser = (props) => {
         />
 
         <label>Region:</label>
-        <select className="select-region" value={props.region} onChange={props.handleSelect}>
+        <select
+          className="select-region"
+          value={props.region}
+          onChange={props.handleSelect}
+        >
           <option value="Kanto">Kanto</option>
           <option value="Johto">Johto</option>
           <option value="Hoenn">Hoenn</option>
