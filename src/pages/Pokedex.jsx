@@ -120,7 +120,9 @@ class Pokedex extends React.Component {
         <div
           className="pokemons-list"
           style={
-            this.state.detailClicked ? { width: "30%", marginLeft:"10%" } : { width: "100%" }
+            this.state.detailClicked 
+            ? { width: "45%", marginLeft:"5%", overflowY: "scroll" } 
+            : { width: "100%" }
           }
         >
           {newPokemonArray.map((item, index) => (
