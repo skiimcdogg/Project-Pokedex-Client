@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import PokemonBoxFav from './PokemonBoxFav'
+import PokemonBoxFav from "./PokemonBoxFav";
 import apiHandler from "../api/apiHandler";
 
 class FavoritesPokemons extends Component {
   state = {
     favorites: [],
-    formVisibile: false
+    formVisibile: false,
   };
 
   componentDidMount() {
@@ -36,13 +36,18 @@ class FavoritesPokemons extends Component {
     }
 
     return (
-      <div>
-        <h1>Your favorites:</h1>
-
-        {this.state.favorites
-          .map((item, index) => <PokemonBoxFav key={index} pokemon={item} deletePokemon={this.deletePokemon}/>)
-        }
-      </div> 
+      <div className="team-container">
+        <h1 className="styling-title">Your favorites</h1>
+        <div className="team-pokemon">
+          {this.state.favorites.map((item, index) => (
+            <PokemonBoxFav
+              key={index}
+              pokemon={item}
+              deletePokemon={this.deletePokemon}
+            />
+          ))}
+        </div>
+      </div>
     );
   }
 }

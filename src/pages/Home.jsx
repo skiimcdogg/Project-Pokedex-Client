@@ -12,7 +12,6 @@ class Home extends React.Component {
       <div className="home-page">
       <div className="random-container">
       <PokemonRandom />
-        {/* <h1>Home Page ∆</h1> */}
         </div>
        
        </div> 

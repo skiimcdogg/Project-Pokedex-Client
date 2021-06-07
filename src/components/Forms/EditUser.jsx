@@ -2,12 +2,11 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 
 const EditUser = (props) => {
-  
-    return (
-      <form onSubmit={props.handleSubmit}>
-        <h2>Edit your profile</h2>
-
-        <label htmlFor="pseudo">Pseudo</label>
+  return (
+    <div className="user-container">
+      <h2 className="styling-title">Edit your profile</h2>
+      <form className="user-form" onSubmit={props.handleSubmit}>
+        <label htmlFor="pseudo">Pseudo:</label>
         <input
           onChange={props.handleChange}
           name="pseudo"
@@ -16,7 +15,7 @@ const EditUser = (props) => {
           value={props.pseudo}
         />
 
-        <label htmlFor="email">Mail</label>
+        <label htmlFor="email">Mail:</label>
         <input
           onChange={props.handleChange}
           name="email"
@@ -26,7 +25,7 @@ const EditUser = (props) => {
         />
 
         <label>Region:</label>
-        <select value={props.region} onChange={props.handleSelect}>
+        <select className="select-region" value={props.region} onChange={props.handleSelect}>
           <option value="Kanto">Kanto</option>
           <option value="Johto">Johto</option>
           <option value="Hoenn">Hoenn</option>
@@ -39,14 +38,16 @@ const EditUser = (props) => {
 
         <label htmlFor="avatar">Avatar</label>
         <input
+          className="edit-avatar"
           onChange={props.handleImage}
           name="avatar"
           type="file"
           id="avatar"
         />
-        <button>Send</button>
+        <button className="send-btn">Send</button>
       </form>
-    );
-}
+    </div>
+  );
+};
 
 export default withRouter(EditUser);

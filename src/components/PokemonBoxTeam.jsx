@@ -4,6 +4,8 @@ import { withRouter } from "react-router-dom";
 import { withUser } from "./Auth/withUser";
 import apiHandler from "../api/apiHandler";
 
+import "./../styles/pokemonBox.css";
+
 class PokemonBoxTeam extends Component {
   state = {
     formVisibile: false,
@@ -37,9 +39,9 @@ class PokemonBoxTeam extends Component {
 
   render() {
     return (
-      <div>
-        <h2>{this.state.pokemon.name} </h2>
+      <div className="pokemon-box">
         <img src={this.state.pokemon.image} alt="" />
+        <h2>{this.state.pokemon.name} </h2>
         <button onClick={this.handleDisplayForm}>Update</button>
         {this.state.formVisibile && (
           <div>

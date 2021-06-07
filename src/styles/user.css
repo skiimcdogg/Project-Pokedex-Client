@@ -1,0 +1,141 @@
+.display-btn {
+  height: 100%;
+  width: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(4, 44, 59);
+  color: whitesmoke;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin: 2% 0% 2% 0%;
+  border: 1px solid;
+}
+
+.display-btn:hover {
+  background: #eb804c;
+  color: black;
+  border: 1px solid;
+}
+
+.send-btn {
+  height: 100%;
+  width: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(4, 44, 59);
+  color: whitesmoke;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+  padding: 5% 25% 5% 25%;
+  margin: 2% 0% 2% 0%;
+  border: 1px solid;
+}
+
+.send-btn:hover {
+  background: #eb804c;
+  color: black;
+  border: 1px solid;
+}
+
+.user-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15%;
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin-top: 15px;
+}
+
+.user-form label {
+  cursor: pointer;
+  margin-bottom: 5px;
+  font-size: 1.3rem;
+  color: rgb(4, 44, 59);
+}
+
+.user-form input {
+  height: 100%;
+  margin-bottom: 20px;
+  border: 2px solid rgb(4, 44, 59);
+  border-radius: 0.3rem;
+  padding: 5px 0 5px 10px;
+  width: 140%;
+  color: rgb(4, 44, 59);
+}
+
+.user-form .select-region {
+  height: 100%;
+  margin-bottom: 20px;
+  border: 2px solid rgb(4, 44, 59);
+  border-radius: 0.3rem;
+  padding: 5px 0 5px 10px;
+  width: 140%;
+  color: rgb(4, 44, 59);
+}
+
+.user-form input[type="file"] {
+  display: none;
+}
+
+.user-form .edit-avatar {
+  height: 32px;
+  max-width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(4, 44, 59);
+  color: whitesmoke;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 5px 7px;
+}
+
+.styling-title {
+  background-image: linear-gradient(
+    84deg,
+    #042c3b 1%,
+    #6d85ff 19%,
+    #eb804c 90%
+  );
+  -webkit-text-fill-color: transparent;
+  color: #fff;
+  -webkit-background-clip: text;
+}
+
+.team-pokemon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 5%;
+  margin-bottom: 1%;
+  margin-right: 0%;
+  margin-left: 0%;
+  width: 100%;
+}
+
+.team-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+
