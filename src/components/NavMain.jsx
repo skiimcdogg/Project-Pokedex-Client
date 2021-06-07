@@ -4,9 +4,6 @@ import { withUser } from "../components/Auth/withUser";
 import apiHandler from "../api/apiHandler";
 
 import "../styles/NavMain.css";
-// import pokeballLogo1 from "./../styles/images/Pokeball-logo.png"
-// import pokeballLogo2 from "./../styles/images/pokeball-logo-2.png"
-// import pokeballLogo3 from "./../styles/images/pokeball-logo-3.png"
 import pokedexLogo from "./../styles/images/pokedex-logo.png"
 
 const NavMain = (props) => {

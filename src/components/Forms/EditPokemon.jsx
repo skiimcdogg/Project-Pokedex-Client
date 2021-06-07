@@ -2,7 +2,7 @@ import React from "react";
 
 import "./../../styles/pokemonBox.css"
 
-const EditUser = (props) => {
+const EditPokemon = (props) => {
   return (
     <form className="edit-pokemon" onSubmit={props.handleSubmit}>
       <h2>Edit name</h2>
@@ -14,9 +14,9 @@ const EditUser = (props) => {
         value={props.name}
         id="name"
       />
-      <button>Send</button>
+      <button className="style-btn">Send</button>
     </form>
   );
 };
 
-export default EditUser;
+export default EditPokemon;
