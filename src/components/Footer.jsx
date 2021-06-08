@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import pokeballLogo4 from "./../styles/images/pokeball-logo-4.png"
 
@@ -13,7 +12,7 @@ const Footer = (props) => {
 
 
 <div onClick={props.randomPokemon} className="pokeball-footer"> 
-            <img  src={pokeballLogo4}/>
+            <img  src={pokeballLogo4} alt="logo"/>
             </div>
 
 

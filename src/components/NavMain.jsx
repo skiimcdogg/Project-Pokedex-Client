@@ -30,7 +30,7 @@ const NavMain = (props) => {
         <div className="pokeball-logo">
           <h3 className="link-pokedex">Pokedex</h3>
             
-            <img  src={pokedexLogo}/>
+            <img src={pokedexLogo} alt="pokedex-logo"/>
             </div>
         </NavLink>
       </div>
@@ -42,7 +42,7 @@ const NavMain = (props) => {
               <li>
                 <NavLink to="/profile">
                   {context.user && (
-                    <img className="profile-img" src={context.user.avatar} />
+                    <img className="profile-img" src={context.user.avatar} alt="avatar"/>
                   )}
                 </NavLink>
               </li>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import EditPokemon from './Forms/EditPokemon';
 import { withRouter } from 'react-router-dom';
-import { withUser } from './Auth/withUser';
 import apiHandler from '../api/apiHandler';
 
 import './../styles/pokemonBox.css';
@@ -11,8 +10,8 @@ import brushLogo from './../styles/images/edit.png';
 class PokemonBoxTeam extends Component {
   state = {
     formVisibile: false,
-    pokemon: null,
-    name: '',
+    pokemon: this.props.pokemon,
+    name: this.props.pokemon.name,
   };
 
   handleDisplayForm = () => {
@@ -23,27 +22,13 @@ class PokemonBoxTeam extends Component {
     this.setState({ name: valueFromChange });
   };
 
-  componentDidMount() {
-    this.setState({
-      pokemon: this.props.pokemon,
-      name: this.props.pokemon.name,
-    });
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-
-    if (prevState.name !== this.state.name) {
-      console.log("PREVSTATE",prevState);
-      
-
-  this.handleSubmit = (event) => {
+  handleSubmit = (event) => {
     // event.preventDefault();
     let id = this.props.pokemon._id;
 
         apiHandler
         .handleEditPokemon(id, { name: this.state.name })
         .then((response) => {
-          console.log(response);
           this.setState({ pokemon: response });
           this.handleDisplayForm();
         })
@@ -51,13 +36,8 @@ class PokemonBoxTeam extends Component {
           console.log(error);
         });
     }
-  }
-  };
 
   render() {
-    if (this.state.name === "") {
-      return <div>Loading...</div>;
-    }
     return (
       <div className="pokemon-box">
         <img src={this.props.pokemon.image} alt="" />
@@ -93,4 +73,4 @@ class PokemonBoxTeam extends Component {
   }
 }
 
-export default withRouter(withUser(PokemonBoxTeam));
+export default withRouter(PokemonBoxTeam);

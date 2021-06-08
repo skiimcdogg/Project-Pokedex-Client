@@ -14,7 +14,6 @@ function FormFav(props) {
   //WHEN USER CLICKS ON SUBMIT SENDS THE DATA TO THE DATABASE THROUGH AXIOS CALL
   let handleSubmit = (event) => {
     event.preventDefault();
-    console.log('handle submit is working');
 
     const Body = {
       name: props.pokemon.name,
@@ -31,7 +30,7 @@ function FormFav(props) {
       .handleFavSubmit(Body)
       .then((response) => {
         //REDIRECT FRONT END
-        props.history.push(`/profile`);
+        // props.history.push(`/profile`);
       })
       .catch((error) => {
         console.log('ERROR', error);

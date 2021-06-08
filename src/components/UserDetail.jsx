@@ -9,7 +9,7 @@ function UserDetail(props) {
         return (
             <div className="all-details">
                   <h1>Welcome to your profile {pseudo} !</h1>
-                  <img className="img-profile" src={avatar} alt="your profile's image"/>
+                  <img className="img-profile" src={avatar} alt="profile"/>
                   <h3>Region: {region}</h3>
                   <p>Your email: {email}</p>
             </div>

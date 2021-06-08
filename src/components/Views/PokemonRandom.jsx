@@ -1,20 +1,13 @@
 import React from "react";
-
-import { withRouter, Link } from "react-router-dom";
-
+import { withRouter } from "react-router-dom";
 
 import "./../../styles/random.css"
 
 class PokemonRandom extends React.Component {
   
-
   componentDidMount() {
-
 this.props.randomPokemon();
-  
-  
-    
-  }
+}
 
   render() {
     if (this.props.pokemon === null) {
@@ -23,7 +16,6 @@ this.props.randomPokemon();
     const convertWeight = Number(this.props.pokemon.weight) / 10;
     
     return (
-      // <Link exact to="/">
       <div className="pokemon-random-card">
         
           <img
@@ -35,10 +27,7 @@ this.props.randomPokemon();
 
           <div className="random-pokemon-types">
           {this.props.pokemon.types.map((item, index) => (
-            // <span >
-             <div key={index}> <img src={`/images/${item.type.name}.png`} alt={`${item.type.name}`}/> </div>
-              /* </span> */
-            
+             <div key={index}> <img src={`/images/${item.type.name}.png`} alt={`${item.type.name}`}/> </div>            
           ))}
           </div>
 
@@ -48,7 +37,6 @@ this.props.randomPokemon();
           </div>
 
       </div>
-      // </Link>
     );
   }
 }

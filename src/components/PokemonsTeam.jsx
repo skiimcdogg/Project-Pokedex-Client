@@ -8,7 +8,6 @@ class PokemonsTeam extends Component {
   };
 
   componentDidMount() {
-    // console.log(this.props.team);
     this.setState({ team: this.props.team });
   }
 
@@ -28,6 +27,7 @@ class PokemonsTeam extends Component {
     if (this.state.team === []) {
       return <div>You have no pokemon in your team yet</div>;
     }
+    console.log(this.state.team);
 
     return (
       <div className="team-container">
