@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import pokeballLogo4 from "./../styles/images/pokeball-logo-4.png"
 
-const Footer = () => {
+const Footer = (props) => {
  return (
 <div className="footer">
 <div>
@@ -10,9 +11,11 @@ const Footer = () => {
 <p>Designed by <span>Antoine</span>, <span>Claire</span> & <span>Pauline</span></p>
 </div>
 
-<div className="pokeball-footer"> 
+
+<div onClick={props.randomPokemon} className="pokeball-footer"> 
             <img  src={pokeballLogo4}/>
             </div>
+
 
 <div className="portfolios">
 <p>See our portfolios:</p>

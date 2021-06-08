@@ -74,4 +74,10 @@ span:hover {
 .pokeball-footer img {
   width: 17%;
   margin-left: 30%;
+  cursor:pointer;
+  opacity:0.7;
+}
+
+.pokeball-footer img:hover {
+  opacity:1;
 }
