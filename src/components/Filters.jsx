@@ -8,7 +8,6 @@ class Filters extends Component {
   };
   
   render() {
-    // console.log("props venant de pokedex", this.props.types.results);
     if (this.props.types.results === undefined) {
       return <div>Loading...</div>;
     }

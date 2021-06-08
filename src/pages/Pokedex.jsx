@@ -20,9 +20,7 @@ class Pokedex extends React.Component {
     apiHandler
       .getPokemons()
       .then((response) => {
-        // console.log("RESPONSE DB",response)
         this.setState({ pokemons: response });
-       
       })
       .catch((error) => {
         console.log(error);
@@ -31,7 +29,6 @@ class Pokedex extends React.Component {
     apiHandler
       .getTypes()
       .then((response) => {
-        // console.log("TYPES",response)
         this.setState({ types: response });
       })
       .catch((error) => {
@@ -50,23 +47,18 @@ class Pokedex extends React.Component {
   handleChangeInput = (event) => {
     const target = event.target;
     if (target.checked) {
-      // console.log("SALUT BÉBÉ");
       const array = this.state.typesChecked;
       array.push(target.name);
-      // console.log(array);
       this.setState({ typesChecked: array });
     } else {
-      // console.log("BYE LE GROS");
       const array = this.state.typesChecked;
       const toRemove = array.indexOf(target.name);
       array.splice(toRemove, 1);
-      // console.log(array);
       this.setState({ typesChecked: array });
     }
   };
 
   render() {
-    console.log("state detail clicked", this.state.detailClicked);
     const { search, pokemons, types, typesChecked } = this.state;
 
     let newPokemonArray = pokemons
@@ -103,10 +95,14 @@ class Pokedex extends React.Component {
               checkedArr={typesChecked}
             />
             {this.state.typesChecked.length === 3 && (
+            <div className="message-box">
               <p className="message">Please select only two types at once</p>
+            </div>
             )}
-            {newPokemonArray.length === 0 && (
+            {this.state.typesChecked.length === 2 && newPokemonArray.length === 0 && (
+            <div className="message-box">
               <p className="message">No match</p>
+            </div>
             )}
           </div>
 
@@ -129,8 +125,6 @@ class Pokedex extends React.Component {
             <PokemonsList key={index} pokemons={item} />
           ))}
         </div>
-
-        {/* <Route exact path={"/pokedex/:id"} component={PokemonDetail} /> */}
 
         <Route
           exact
