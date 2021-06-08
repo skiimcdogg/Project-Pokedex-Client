@@ -1,25 +1,20 @@
-// import axios from "axios";
-import apiHandler from "../../api/apiHandler";
-import React from "react";
-import { withRouter } from "react-router-dom";
+import apiHandler from '../../api/apiHandler';
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 function FormFav(props) {
   let typesArray = props.pokemon.types.map((item) => item.type.name);
-  // console.log(typesArray);
 
   let statsArray = props.pokemon.stats.map((item) => item.stat.name);
-  // console.log(statsArray);
 
   let baseStatsArray = props.pokemon.stats.map((item) => item.base_stat);
-  // console.log(baseStatsArray);
 
   let movesArray = props.pokemon.moves.map((item) => item.move.name);
-  // console.log(movesArray);
 
   //WHEN USER CLICKS ON SUBMIT SENDS THE DATA TO THE DATABASE THROUGH AXIOS CALL
   let handleSubmit = (event) => {
     event.preventDefault();
-    console.log("handle submit is working");
+    console.log('handle submit is working');
 
     const Body = {
       name: props.pokemon.name,
@@ -32,8 +27,6 @@ function FormFav(props) {
       moves: movesArray,
     };
 
-    //axios.post(process.env.REACT_APP_BACKEND_URL + "api/pokemons/createFav", Body, {withCredentials: true,})
-
     apiHandler
       .handleFavSubmit(Body)
       .then((response) => {
@@ -41,7 +34,7 @@ function FormFav(props) {
         props.history.push(`/profile`);
       })
       .catch((error) => {
-        console.log("ERROR", error);
+        console.log('ERROR', error);
       });
   };
 
