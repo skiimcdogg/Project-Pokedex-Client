@@ -1,8 +1,7 @@
 import React from "react";
-// import FormFav from "../Forms/FormFav";
-// import FormTeam from "../Forms/FormTeam";
 import apiHandler from "../../api/apiHandler";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
+
 
 import "./../../styles/random.css"
 
@@ -42,7 +41,7 @@ class PokemonRandom extends React.Component {
     const convertWeight = Number(this.state.pokemon.weight) / 10;
     
     return (
-    
+      // <Link exact to="/">
       <div className="pokemon-random-card">
         
           <img
@@ -67,7 +66,7 @@ class PokemonRandom extends React.Component {
           </div>
 
       </div>
-      
+      // </Link>
     );
   }
 }

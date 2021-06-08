@@ -1,7 +1,7 @@
 import React from "react";
 import NavMain from "../components/NavMain";
 import Footer from "../components/Footer";
-import PokemonRandom from "../components/Views/PokemonRandom"
+import PokemonRandom from "../components/Views/PokemonRandom";
 
 
 class Home extends React.Component {
@@ -9,13 +9,13 @@ class Home extends React.Component {
     return (
       <div>
         <NavMain />
-      <div className="home-page">
-      <div className="random-container">
-      <PokemonRandom />
-        {/* <h1>Home Page ∆</h1> */}
+        <div className="home-page">
+          <div className="random-container">
+           
+              <PokemonRandom />
+            
+          </div>
         </div>
-       
-       </div> 
         <Footer />
       </div>
     );
