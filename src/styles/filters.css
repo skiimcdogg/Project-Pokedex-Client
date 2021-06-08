@@ -10,8 +10,7 @@ h3 {
 }
 
 .filter {
-    margin: 4px; 
-    /* margin-top: 5px; */
+    margin-top: 0.75%;
 }
 
 label {
@@ -25,7 +24,6 @@ label img {
 
 input[type="checkbox"] {
     display: none;
-    /* visibility: hidden; */
     width: 1px;
 }
 
@@ -34,10 +32,19 @@ input[type="checkbox"] {
     font-weight: bold;
 }
 
+.message-box {
+    margin: auto;
+    margin-top: 1.5%;
+    padding: 1.5%;
+    width: 30%;
+    background-color: #f8d6da;
+    border: 1px solid rgba(128,43,49,0.25);
+    border-radius: 5px;
+}
+
 .message {
     text-align: center;
-    color: red;
+    color: #802b31;
     font-weight: bold;
-    margin: 5px;
 }
 

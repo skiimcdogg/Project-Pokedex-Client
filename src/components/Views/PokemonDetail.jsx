@@ -2,7 +2,7 @@ import React from "react";
 import FormFav from "../Forms/FormFav";
 import FormTeam from "../Forms/FormTeam";
 import apiHandler from "../../api/apiHandler";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import "./../../styles/pokemonDetail.css"
 
@@ -17,7 +17,6 @@ class PokemonDetail extends React.Component {
     apiHandler
       .getPokemonDetails(id)
       .then((response) => {
-        // console.log("RESPONSE", response);
         this.setState({ pokemon: response });
         this.props.handleDetailClick()
       })
@@ -25,12 +24,9 @@ class PokemonDetail extends React.Component {
         console.log(error);
       });
 
-
     apiHandler
       .getUser()
       .then((response) => {
-        // console.log("RESPONSE DB", response);
-        // this.setState({ user: response.data });
         this.setState({ user: response });
       })
       .catch((error) => {
@@ -55,7 +51,6 @@ class PokemonDetail extends React.Component {
         apiHandler
         .getUser()
         .then((response) => {
-          // console.log("RESPONSE DB", response);
           this.setState({ user: response });
         })
         .catch((error) => {
@@ -71,7 +66,15 @@ class PokemonDetail extends React.Component {
     const convertWeight = Number(this.state.pokemon.weight) / 10;
     return (
       <div className="pokemon-card">
-        
+
+      <Link 
+      onClick={this.props.handleDetailClick}
+      to="/pokedex">
+        <div className="close-card">
+          <p>X</p>
+        </div>
+      </Link>
+
           <img
             src={this.state.pokemon.sprites.front_default}
             alt={this.state.pokemon.name}
