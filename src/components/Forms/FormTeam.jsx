@@ -1,26 +1,19 @@
-// import axios from "axios";
-import React from "react";
-import { withRouter } from "react-router-dom";
-import apiHandler from "../../api/apiHandler";
-import { withUser } from "../Auth/withUser";
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+import { withUser } from '../Auth/withUser';
+
+import apiHandler from '../../api/apiHandler';
 
 function FormTeam(props) {
   let typesArray = props.pokemon.types.map((item) => item.type.name);
-  // console.log(typesArray);
-
   let statsArray = props.pokemon.stats.map((item) => item.stat.name);
-  // console.log(statsArray);
-
   let baseStatsArray = props.pokemon.stats.map((item) => item.base_stat);
-  // console.log(baseStatsArray);
-
   let movesArray = props.pokemon.moves.map((item) => item.move.name);
-  // console.log(movesArray);
 
   //WHEN USER CLICKS ON SUBMIT SENDS THE DATA TO THE DATABASE THROUGH AXIOS CALL
   let handleSubmit = (event) => {
     event.preventDefault();
-    console.log("handle submit is working");
+    console.log('handle submit is working');
     const Body = {
       name: props.pokemon.name,
       height: props.pokemon.height,
@@ -32,10 +25,6 @@ function FormTeam(props) {
       moves: movesArray,
     };
 
-    // axios
-    //   .post(
-    //     process.env.REACT_APP_BACKEND_URL + "api/pokemons/createTeam",Body,{withCredentials: true,}
-    //   )
     apiHandler
       .handleTeamSubmit(Body)
       .then((response) => {
@@ -43,11 +32,9 @@ function FormTeam(props) {
         // props.history.push(`/profile`);
       })
       .catch((error) => {
-        console.log("ERROR", error);
+        console.log('ERROR', error);
       });
   };
-
-  // console.log("context user", props.user);
 
   let teamFull;
   if (props.user === null) {
@@ -59,12 +46,10 @@ function FormTeam(props) {
   }
 
   return (
-    //  <div>salut bébé</div>
     <div>
       <React.Fragment>
         {!teamFull && (
-          <form onSubmit={handleSubmit} encType="multipart/form-data">
-            {/* ENCTYPE MULTIPART HANDLES FILE UPLOAD  */}
+          <form onSubmit={handleSubmit} encType='multipart/form-data'>
             <div>
               <button>TEAM</button>
             </div>

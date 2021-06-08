@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { withRouter, Redirect } from "react-router-dom";
-import apiHandler from "../../api/apiHandler";
-import { withUser } from "../Auth/withUser";
+import React, { Component } from 'react';
+import { withRouter, Redirect } from 'react-router-dom';
+import apiHandler from '../../api/apiHandler';
+import { withUser } from '../Auth/withUser';
 
 class FormSignin extends Component {
   state = {
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   };
 
   handleChange = (event) => {
@@ -32,20 +32,41 @@ class FormSignin extends Component {
 
   render() {
     if (this.props.context.user) {
-      return <Redirect to="/" />;
+      return <Redirect to='/' />;
     }
 
     return (
-      <div className="form-container">
-      <form className="form" onChange={this.handleChange} onSubmit={this.handleSubmit}>
-        <label  className="label" htmlFor="email">Email</label>
-        <input className="input" type="email" id="email" name="email" />
-        <label className="label" htmlFor="password">Password</label>
-        <input className="input" type="password" id="password" name="password" />
-        <button className="btn" >Submit</button>
-      </form>
+      <div className='form-container'>
+        <form
+            className='form'
+            onChange={this.handleChange}
+            onSubmit={this.handleSubmit}
+        >
+          <label 
+            className='label' 
+            htmlFor='email'>
+            Email
+          </label>
+          <input 
+            className='input' 
+            type='email' 
+            id='email' 
+            name='email' />
+          <label 
+            className='label' 
+            htmlFor='password'>
+          Password
+          </label>
+          <input
+            className='input'
+            type='password'
+            id='password'
+            name='password'
+          />
+          <button 
+            className='btn'>Submit</button>
+        </form>
       </div>
-      
     );
   }
 }
