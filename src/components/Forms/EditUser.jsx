@@ -40,7 +40,7 @@ const EditUser = (props) => {
           <option value='Galar'>Galar</option>
         </select>
 
-        <label htmlFor='avatar'>Avatar</label>
+        <label className='edit-avatar' htmlFor='avatar'>Upload avatar</label>
         <input
           className='edit-avatar'
           onChange={props.handleImage}

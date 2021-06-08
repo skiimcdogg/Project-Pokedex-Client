@@ -93,9 +93,14 @@
   display: none;
 }
 
+.user-form .edit-avatar:hover {
+  background: #eb804c;
+  color: black;
+}
+
 .user-form .edit-avatar {
-  height: 32px;
-  max-width: 120px;
+  height: 40px;
+  max-width: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
