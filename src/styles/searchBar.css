@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Inconsolata:700");
+/* @import url("https://fonts.googleapis.com/css?family=Inconsolata:700"); */
 
 .flex-filters {
   display: flex;
@@ -15,7 +15,7 @@
   margin-top: 1%;
   width: 100%;
   height: 40px;
-  margin-bottom:5%;
+  margin-bottom: 4%;
 }
 .container .search {
   position: absolute;
@@ -64,7 +64,7 @@
   transition: all 0.5s;
 }
 .container input {
-  font-family: "Inconsolata", monospace;
+  /* font-family: "Inconsolata", monospace; */
   position: absolute;
   margin: auto;
   right: 0;
@@ -81,7 +81,7 @@
   opacity: 0;
   z-index: 5;
   font-weight: bolder;
-  letter-spacing: 0.1em;
+  /* letter-spacing: 0.1em; */
 }
 .container input:hover {
   cursor: pointer;

@@ -4,11 +4,15 @@ import { withRouter } from "react-router-dom";
 import { withUser } from "./Auth/withUser";
 import apiHandler from "../api/apiHandler";
 
+import "./../styles/pokemonBox.css";
+import trashLogo from "./../styles/images/trash.png"
+import brushLogo from "./../styles/images/edit.png"
+
 class PokemonBoxTeam extends Component {
   state = {
     formVisibile: false,
     pokemon: this.props.pokemon,
-    name: this.props.pokemon.name
+    name: this.props.pokemon.name,
   };
 
   handleDisplayForm = () => {
@@ -16,45 +20,47 @@ class PokemonBoxTeam extends Component {
   };
 
   handleChange = (valueFromChange) => {
-    this.setState({ name: valueFromChange })
-  }
+    this.setState({ name: valueFromChange });
+  };
 
   handleSubmit = (event) => {
-    event.preventDefault()
-    let id = this.state.pokemon._id
+    event.preventDefault();
+    let id = this.state.pokemon._id;
 
-      apiHandler
-      .handleEditPokemon(id, {name: this.state.name})
+    apiHandler
+      .handleEditPokemon(id, { name: this.state.name })
       .then((response) => {
-        console.log(response)
-        this.setState({ pokemon: response })
-        this.handleDisplayForm()
+        console.log(response);
+        this.setState({ pokemon: response });
+        this.handleDisplayForm();
       })
       .catch((error) => {
-        console.log(error)
-      })
-  }
+        console.log(error);
+      });
+  };
 
   render() {
     return (
-      <div>
-        <h2>{this.state.pokemon.name} </h2>
+      <div className="pokemon-box">
         <img src={this.state.pokemon.image} alt="" />
-        <button onClick={this.handleDisplayForm}>Update</button>
+        <h2>{this.state.pokemon.name} </h2>
+        <button className="no-style-btn" onClick={this.handleDisplayForm}>
+          <img className="brush-logo" src={brushLogo} alt="logo de supression pokemon"/>
+        </button>
         {this.state.formVisibile && (
           <div>
             <EditPokemon
-            name={this.state.name}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
+              name={this.state.name}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
             />
           </div>
         )}
         <button
-          className="button"
+          className="no-style-btn"
           onClick={() => this.props.deletePokemon(this.state.pokemon._id)}
         >
-          Delete
+          <img className="trash-logo" src={trashLogo} alt="logo de supression pokemon"/>
         </button>
       </div>
     );

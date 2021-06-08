@@ -1,33 +1,36 @@
-import React, { Component } from 'react'
-import NavMain from '../components/NavMain'
-import UserDetail from './../components/UserDetail'
-import PokemonsTeam from './../components/PokemonsTeam'
-import FavoritesPokemons from './../components/FavoritesPokemons'
-import EditUser from './../components/Forms/EditUser'
-import apiHandler from '../api/apiHandler'
+import React, { Component } from "react";
+import NavMain from "../components/NavMain";
+import UserDetail from "./../components/UserDetail";
+import PokemonsTeam from "./../components/PokemonsTeam";
+import FavoritesPokemons from "./../components/FavoritesPokemons";
+import EditUser from "./../components/Forms/EditUser";
+import apiHandler from "../api/apiHandler";
 
-class Profile extends Component{
+import "./../styles/profile.css";
+import "./../styles/user.css";
+
+class Profile extends Component {
   state = {
     user: null,
     formVisibile: false,
     pseudo: "",
     email: "",
     region: "",
-    avatar: ""
+    avatar: "",
   };
 
   componentDidMount() {
-       apiHandler
-     .getUser()
+    apiHandler
+      .getUser()
       .then((response) => {
-            // console.log("RESPONSE DB",response)
-            this.setState({
-              user: response,
-              email: response.email,
-              pseudo: response.pseudo,
-              region: response.region,
-              avatar: response.avatar
-            });
+        // console.log("RESPONSE DB",response)
+        this.setState({
+          user: response,
+          email: response.email,
+          pseudo: response.pseudo,
+          region: response.region,
+          avatar: response.avatar,
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -38,7 +41,7 @@ class Profile extends Component{
     this.setState({ formVisibile: !this.state.formVisibile });
   };
 
-    handleImage = (event) => {
+  handleImage = (event) => {
     const file = event.target.files[0];
     // console.log(file, "this is the file");
     this.setState({ avatar: file });
@@ -55,8 +58,8 @@ class Profile extends Component{
     this.setState({ region: event.target.value });
   };
 
-    handleSubmit = (event) => {
-    event.preventDefault()
+  handleSubmit = (event) => {
+    event.preventDefault();
     const formUpdateData = new FormData();
 
     formUpdateData.append("pseudo", this.state.pseudo);
@@ -65,13 +68,13 @@ class Profile extends Component{
     formUpdateData.append("avatar", this.state.avatar);
 
     let id = this.state.user._id;
-    
+
     apiHandler
       .handleEditUser(id, formUpdateData)
       .then((response) => {
         console.log("------------", response);
         this.setState({ user: response });
-        this.handleDisplayForm()
+        this.handleDisplayForm();
       })
       .catch((error) => {
         console.log(error);
@@ -85,31 +88,33 @@ class Profile extends Component{
     return (
       <div>
         <NavMain />
-        <UserDetail user={this.state.user}/>
-        <button onClick={this.handleDisplayForm}>
-          Update your infos
-        </button>
-        {this.state.formVisibile && (
-          <div>
-            <EditUser
-            // props //
-            pseudo={this.state.pseudo}
-            email={this.state.email}
-            region={this.state.region}
-            avatar={this.state.avatar}
-            // functions //
-            handleImage={this.handleImage}
-            handleChange={this.handleChange}
-            handleSelect={this.handleSelect}
-            handleSubmit={this.handleSubmit}
-            />
-          </div>
-        )}
-        <PokemonsTeam team={this.state.user.pokeTeam}/>
-        <FavoritesPokemons favorites={this.state.user.pokeFav}/>
+        <div className="user-container">
+          <UserDetail user={this.state.user} />
+          <button className="display-btn" onClick={this.handleDisplayForm}>
+            Update your infos
+          </button>
+          {this.state.formVisibile && (
+            <div>
+              <EditUser
+                // props //
+                pseudo={this.state.pseudo}
+                email={this.state.email}
+                region={this.state.region}
+                avatar={this.state.avatar}
+                // functions //
+                handleImage={this.handleImage}
+                handleChange={this.handleChange}
+                handleSelect={this.handleSelect}
+                handleSubmit={this.handleSubmit}
+              />
+            </div>
+          )}
+            <PokemonsTeam team={this.state.user.pokeTeam} />
+          <FavoritesPokemons favorites={this.state.user.pokeFav} />
+        </div>
       </div>
     );
   }
-};
+}
 
 export default Profile;

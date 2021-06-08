@@ -30,12 +30,17 @@ class PokemonsTeam extends Component {
     }
 
     return (
-      <div>
-        <h1>Your team:</h1>
-       
-        {this.state.team.map((item, index) => (
-          <PokemonBoxTeam key={index} pokemon={item} deletePokemon={this.deletePokemon} />
-        ))}
+      <div className="team-container">
+        <h1 className="styling-title">Your team</h1>
+        <div className="team-pokemon">
+          {this.state.team.map((item, index) => (
+            <PokemonBoxTeam
+              key={index}
+              pokemon={item}
+              deletePokemon={this.deletePokemon}
+            />
+          ))}
+        </div>
       </div>
     );
   }

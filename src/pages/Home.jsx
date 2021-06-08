@@ -9,12 +9,10 @@ class Home extends React.Component {
     return (
       <div>
         <NavMain />
-        <div className="home-page">
-          <div className="random-container">
-           
-              <PokemonRandom />
-            
-          </div>
+      <div className="home-page">
+      <div className="random-container">
+      <PokemonRandom />
+        </div>
         </div>
         <Footer />
       </div>

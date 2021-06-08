@@ -1,22 +1,24 @@
-import React from 'react';
+import React from "react";
 
-const EditUser = (props) => {
+import "./../../styles/pokemonBox.css";
 
-      return(
-    <form onSubmit={props.handleSubmit}>
-        <h2>Edit your pokemon's name</h2>
+const EditPokemon = (props) => {
+  const { handleSubmit, name, handleChange } = props;
 
-    <label htmlFor="name">Name</label>
-        <input
-          onChange={(event) => props.handleChange(event.target.value)}
-          name="name"
-          type="text"
-          value={props.name}
-          id="name"
-        />
-        <button>Send</button>
+  return (
+    <form className='edit-pokemon' onSubmit={handleSubmit}>
+      <h2>Edit name</h2>
+      <label htmlFor='name'>Name</label>
+      <input
+        onChange={(event) => handleChange(event.target.value)}
+        name='name'
+        type='text'
+        value={name}
+        id='name'
+      />
+      <button className='style-btn'>Send</button>
     </form>
-    )
-}
+  );
+};
 
-export default EditUser;
+export default EditPokemon;

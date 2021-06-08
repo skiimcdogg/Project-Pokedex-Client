@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./../../styles/pokedex.css";
 
 function PokemonsList(props) {
-  //  console.log("PROPS", props.pokemons)
 
   return (
     <div className="one-pokemon">
