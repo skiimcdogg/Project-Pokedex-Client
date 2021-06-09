@@ -1,11 +1,14 @@
+
+
+
 .random-container{
     display: flex;
    justify-content: center;
     max-width: 100%;
     margin:auto;
     height:100%;
-    
   }
+
 
   .pokemon-random-card {
     margin: auto;
@@ -48,3 +51,15 @@
     width:80%;
 
 }
+
+@media screen and (max-width: 600px) {
+    .pokemon-random-card {
+        width:300px;
+
+       
+    }  
+    .random-height-weight {
+        flex-wrap: wrap;
+    }
+    
+}  

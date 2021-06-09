@@ -35,7 +35,7 @@ const NavMain = (props) => {
         </NavLink>
       </div>
       
-      <div className="singnin-signup">
+      <div className="signin-signup">
         <ul className="nav-list">
           {context.isLoggedIn && (
             <React.Fragment>

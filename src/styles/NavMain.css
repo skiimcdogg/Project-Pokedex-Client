@@ -1,5 +1,5 @@
 .nav-main {
-  background-color: rgb(4,44,59);
+  background-color: rgb(4, 44, 59);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -8,8 +8,8 @@
   padding-left: 2%;
   padding-top: 2%;
   padding-bottom: 2%;
-  color: rgb(247,232,161);
-  box-shadow: 0 4px 20px -2px rgb(235,128,76);
+  color: rgb(247, 232, 161);
+  box-shadow: 0 4px 20px -2px rgb(235, 128, 76);
   max-height: 90px;
   max-height: 90px;
 }
@@ -19,8 +19,7 @@
   height: 100%;
   border-radius: 50px;
   padding-right: 1%;
-  border: 2.5px solid rgb(235,128,76);
-  
+  border: 2.5px solid rgb(235, 128, 76);
 }
 
 .first-div {
@@ -33,7 +32,6 @@
   cursor: pointer;
   margin-left: 10px;
 }
-
 
 .nav-list {
   display: flex;
@@ -69,5 +67,23 @@
 }
 
 .link-pokedex {
-  cursor:pointer;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .nav-main {
+    justify-content: space-around;
+  }
+
+  .pokeball-logo img {
+    display: none;
+  }
+
+  .first-div {
+    font-size: 100%;
+  }
+
+  .nav-list {
+    font-size: 100%;
+  }
 }

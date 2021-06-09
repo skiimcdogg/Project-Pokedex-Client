@@ -38,8 +38,8 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(247,232,161);
-  color: rgb(4,44,59);
+  background-color: rgb(247, 232, 161);
+  color: rgb(4, 44, 59);
   padding-left: 2%;
   padding-right: 2%;
   padding-top: 0.5%;
@@ -74,10 +74,24 @@ span:hover {
 .pokeball-footer img {
   width: 17%;
   margin-left: 30%;
-  cursor:pointer;
-  opacity:0.7;
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .pokeball-footer img:hover {
-  opacity:1;
+  opacity: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .footer > div:first-child {
+    display: none;
+  }
+
+  .pokeball-footer img {
+    margin-left: 0;
+  }
+
+  .pokeball-footer img:active {
+    opacity: 1;
+  }
 }

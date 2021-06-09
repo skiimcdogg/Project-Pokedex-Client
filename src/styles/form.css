@@ -86,4 +86,15 @@ input[type="file"] {
 
 }
 
+@media screen and (max-width: 600px) {
+  .form .input {
+    width: 60%;
+    
+  }
+
+  .form .btn {
+    width:35%;
+  }
+}
+
 

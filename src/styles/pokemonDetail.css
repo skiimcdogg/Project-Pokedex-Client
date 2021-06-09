@@ -1,73 +1,109 @@
 .pokemon-card {
-    position: absolute; 
-    margin: auto;
-    top:42%;
-    right:13%;
-    background-color: #f2f2f2; 
-    padding: 1% 0;
-    border-radius: 15px;
-    border: solid 1px #dbdbdb;
-    width: 22%;
+  position: absolute;
+  margin: auto;
+  top: 42%;
+  right: 13%;
+  background-color: #f2f2f2;
+  padding: 1% 0;
+  border-radius: 15px;
+  border: solid 1px #dbdbdb;
+  width: 22%;
 }
 
-.pokemon-stats, .pokemon-types, .pokemon-btns {
-    display: flex;
-    justify-content: space-evenly;
+.pokemon-stats,
+.pokemon-types,
+.pokemon-btns {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .single-pokemon {
-    text-align: center;
-    margin-bottom: 3%;
+  text-align: center;
+  margin-bottom: 3%;
 }
 
 .pokemon-card img {
-    display: flex;
-    justify-content: center;
-    margin: auto;
+  display: flex;
+  justify-content: center;
+  margin: auto;
 }
 
 .pokemon-card span {
-    color: grey;
+  color: grey;
 }
 
 .height-weight {
-    display: flex;
-    justify-content: space-around;
-    padding: 4% 0 6% 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 4% 0 6% 0;
 }
 
 .pokemon-card hr {
-    width: 75%;
-    border: solid 1px #dbdbdb;
-    margin: auto;
+  width: 75%;
+  border: solid 1px #dbdbdb;
+  margin: auto;
 }
 
 .pokemon-stats {
-    margin-top: 5%;
+  margin-top: 5%;
 }
 
 .pokemon-btns {
-    margin: 6% 0;
+  margin: 6% 0;
 }
 
 .pokemon-btns button {
-    font-weight: bold;
-    color: white;
-    padding: 5%;
-    border-radius: 25px;
-background: linear-gradient(135deg, rgba(230,250,255,1) 0%, rgba(68,164,199,1) 40%, rgba(20,144,189,1) 100%);
-    border: 1px solid #44a4c7;
-    width: 100px;
-    height: 30px;
-    cursor: pointer;
+  font-weight: bold;
+  color: white;
+  padding: 5%;
+  border-radius: 25px;
+  background: linear-gradient(
+    135deg,
+    rgba(230, 250, 255, 1) 0%,
+    rgba(68, 164, 199, 1) 40%,
+    rgba(20, 144, 189, 1) 100%
+  );
+  border: 1px solid #44a4c7;
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
 }
 
 .pokemon-btns button:hover {
-background: linear-gradient(50deg, rgba(230,250,255,1) 0%, rgba(68,164,199,1) 40%, rgba(20,144,189,1) 100%);
+  background: linear-gradient(
+    50deg,
+    rgba(230, 250, 255, 1) 0%,
+    rgba(68, 164, 199, 1) 40%,
+    rgba(20, 144, 189, 1) 100%
+  );
 }
 
 .close-card {
-    color: grey;
-    text-align: right;
-    margin-right: 5%;
+  color: grey;
+  text-align: right;
+  margin-right: 5%;
 }
+
+@media screen and (max-width: 600px) {
+  .pokemon-card {
+    width: 47%;
+    right: 1.5%;
+    top: 63%;
+  }
+  .height-weight {
+    justify-content: space-around;
+    padding: 2%;
+    font-size: 0.75rem;
+  }
+
+  .pokemon-btns button {
+    width: 85px;
+    height:27px;
+  }
+}
+
+@media screen and (max-height: 750px) {
+    .pokemon-card {
+        top: 50%;
+    }
+  }
