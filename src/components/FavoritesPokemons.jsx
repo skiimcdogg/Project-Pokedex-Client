@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import PokemonBoxFav from "./PokemonBoxFav";
-import apiHandler from "../api/apiHandler";
+import React, { Component } from 'react';
+
+import PokemonBoxFav from './PokemonBoxFav';
+import apiHandler from '../api/apiHandler';
 
 class FavoritesPokemons extends Component {
   state = {
@@ -9,7 +10,7 @@ class FavoritesPokemons extends Component {
   };
 
   componentDidMount() {
-    // console.log(this.props.favorites);
+    const { favorites } = this.props;
     this.setState({ favorites: this.props.favorites });
   }
 
@@ -18,7 +19,6 @@ class FavoritesPokemons extends Component {
       .handleDeleteFav(id)
 
       .then((response) => {
-        // console.log(response);
         this.setState({ favorites: response.pokeFav });
       })
       .catch((error) => {
@@ -27,19 +27,23 @@ class FavoritesPokemons extends Component {
   };
 
   handleDisplayForm = () => {
-    this.setState({ formVisibile: !this.state.formVisibile });
+    const { formVisibile } = this.state;
+    this.setState({ formVisibile: !formVisibile });
   };
 
   render() {
-    if (this.state.favorites === []) {
+
+    const { favorites } = this.state;
+
+    if (favorites === []) {
       return <div>You have no favorite Pokemon</div>;
     }
 
     return (
-      <div className="team-container">
-        <h1 className="styling-title">Your favorites</h1>
-        <div className="team-pokemon">
-          {this.state.favorites.map((item, index) => (
+      <div className='team-container'>
+        <h1 className='styling-title'>Your favorites</h1>
+        <div className='team-pokemon'>
+          {favorites.map((item, index) => (
             <PokemonBoxFav
               key={index}
               pokemon={item}

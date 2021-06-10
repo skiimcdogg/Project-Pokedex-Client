@@ -2,8 +2,9 @@ import React from "react";
 
 import "./../../styles/pokemonBox.css";
 
-const EditPokemon = (props) => {
-  const { handleSubmit, name, handleChange } = props;
+const EditPokemon = () => {
+  
+  const { handleSubmit, name, handleChange } = this.props;
 
   return (
     <form className='edit-pokemon' onSubmit={handleSubmit}>

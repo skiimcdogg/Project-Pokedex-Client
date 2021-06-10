@@ -1,34 +1,37 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
-const EditUser = (props) => {
+const EditUser = () => {
+
+  const { handleSubmit, handleChange, handleSelect, handleImage, pseudo, email, region } = this.props;
+
   return (
     <div className='user-container'>
       <h2 className='styling-title'>Edit your profile</h2>
-      <form className='user-form' onSubmit={props.handleSubmit}>
+      <form className='user-form' onSubmit={handleSubmit}>
         <label htmlFor='pseudo'>Pseudo:</label>
         <input
-          onChange={props.handleChange}
+          onChange={handleChange}
           name='pseudo'
           type='text'
           id='pseudo'
-          value={props.pseudo}
+          value={pseudo}
         />
 
         <label htmlFor='email'>Mail:</label>
         <input
-          onChange={props.handleChange}
+          onChange={handleChange}
           name='email'
           type='email'
           id='email'
-          value={props.email}
+          value={email}
         />
 
         <label>Region:</label>
         <select
           className='select-region'
-          value={props.region}
-          onChange={props.handleSelect}
+          value={region}
+          onChange={handleSelect}
         >
           <option value='Kanto'>Kanto</option>
           <option value='Johto'>Johto</option>
@@ -43,7 +46,7 @@ const EditUser = (props) => {
         <label className='edit-avatar' htmlFor='avatar'>Upload avatar</label>
         <input
           className='edit-avatar'
-          onChange={props.handleImage}
+          onChange={handleImage}
           name='avatar'
           type='file'
           id='avatar'

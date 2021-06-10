@@ -1,25 +1,28 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import { withUser } from "./Auth/withUser";
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-import trashLogo from "./../styles/images/trash.png"
+import { withUser } from './Auth/withUser';
+import trashLogo from './../styles/images/trash.png';
 
-class PokemonBoxFav extends Component {
+function PokemonBoxFav(props) {
+  const { pokemon, deletePokemon } = props;
 
-  render() {
-    return (
-      <div className="pokemon-box">
-        <img src={this.props.pokemon.image} alt="" />
-        <h2>{this.props.pokemon.name} </h2>
-        <button
-          className="no-style-btn"
-          onClick={() => this.props.deletePokemon(this.props.pokemon._id)}
-        >
-           <img className="trash-logo" src={trashLogo} alt="logo de supression pokemon"/>
-        </button>
-      </div>
-    );
-  }
+  return (
+    <div className='pokemon-box'>
+      <img src={pokemon.image} alt='one of your favorite pokemons' />
+      <h2>{pokemon.name} </h2>
+      <button
+        className='no-style-btn'
+        onClick={() => deletePokemon(pokemon._id)}
+      >
+        <img
+          className='trash-logo'
+          src={trashLogo}
+          alt='delete logo'
+        />
+      </button>
+    </div>
+  );
 }
 
 export default withRouter(withUser(PokemonBoxFav));

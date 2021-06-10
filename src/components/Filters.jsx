@@ -1,41 +1,41 @@
-import React, { Component } from "react";
-import "../styles/filters.css";
+import React from 'react';
 
-class Filters extends Component {
+import '../styles/filters.css';
 
-  handleChange = (event) => {
-    this.props.handleChangeInput(event);
-  };
-  
-  render() {
-    if (this.props.types.results === undefined) {
-      return <div>Loading...</div>;
-    }
-    return (
-      <div>
-        <div className="filter-box">
-        {this.props.types.results.map((type) => {
+function Filters(props) {
+  const { types, checkedArr } = props;
+
+  function handleChange(event) {
+    props.handleChangeInput(event);
+  }
+
+  if (types.results === undefined) {
+    return <div>Loading...</div>;
+  }
+  return (
+    <div>
+      <div className='filter-box'>
+        {types.results.map((type) => {
           return (
-            <div className="filter" key={type.name}>
+            <div className='filter' key={type.name}>
               <label htmlFor={type.name}>
-              <img src={`/images/${type.name}.png`} alt={`${type.name}`}/>
-              { this.props.checkedArr.includes(`${type.name}`) &&(
-              <p className="tick">✓</p>
-               )}
+                <img src={`/images/${type.name}.png`} alt={`${type.name}`} />
+                {checkedArr.includes(`${type.name}`) && (
+                  <p className='tick'>✓</p>
+                )}
               </label>
               <input
                 id={type.name}
-                type="checkbox"
+                type='checkbox'
                 name={type.name}
-                onChange={this.handleChange}
+                onChange={handleChange}
               />
             </div>
-          )
+          );
         })}
-        </div>
       </div>
-    )
-  }
+    </div>
+  );
 }
 
 export default Filters;

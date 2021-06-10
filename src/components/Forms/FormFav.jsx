@@ -1,25 +1,26 @@
-import apiHandler from '../../api/apiHandler';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
+import apiHandler from '../../api/apiHandler';
+
 function FormFav(props) {
-  let typesArray = props.pokemon.types.map((item) => item.type.name);
 
-  let statsArray = props.pokemon.stats.map((item) => item.stat.name);
+  const { pokemon } = props;
 
-  let baseStatsArray = props.pokemon.stats.map((item) => item.base_stat);
-
-  let movesArray = props.pokemon.moves.map((item) => item.move.name);
+  let typesArray = pokemon.types.map((item) => item.type.name);
+  let statsArray = pokemon.stats.map((item) => item.stat.name);
+  let baseStatsArray = pokemon.stats.map((item) => item.base_stat);
+  let movesArray = pokemon.moves.map((item) => item.move.name);
 
   //WHEN USER CLICKS ON SUBMIT SENDS THE DATA TO THE DATABASE THROUGH AXIOS CALL
   let handleSubmit = (event) => {
     event.preventDefault();
 
     const Body = {
-      name: props.pokemon.name,
-      height: props.pokemon.height,
-      weight: props.pokemon.weight,
-      image: props.pokemon.sprites.front_default,
+      name: pokemon.name,
+      height: pokemon.height,
+      weight: pokemon.weight,
+      image: pokemon.sprites.front_default,
       types: typesArray,
       stats: statsArray,
       base_stat: baseStatsArray,
@@ -30,7 +31,7 @@ function FormFav(props) {
       .handleFavSubmit(Body)
       .then((response) => {
         //REDIRECT FRONT END
-        // props.history.push(`/profile`);
+        // history.push(`/profile`);
       })
       .catch((error) => {
         console.log('ERROR', error);
@@ -38,7 +39,7 @@ function FormFav(props) {
   };
 
   return (
-    <form onSubmit={handleSubmit} encType="multipart/form-data">
+    <form onSubmit={handleSubmit} encType='multipart/form-data'>
       <div>
         <button>FAVORITE</button>
       </div>
