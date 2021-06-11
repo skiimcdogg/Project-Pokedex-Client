@@ -1,9 +1,10 @@
-import React from "react";
-import FormSignin from "../components/Forms/FormSignin";
-import NavMain from "../components/NavMain";
-import Footer from "../components/Footer";
+import React from 'react';
 
-const Signin = (props) => {
+import FormSignin from '../components/Forms/FormSignin';
+import NavMain from '../components/NavMain';
+import Footer from '../components/Footer';
+
+const Signin = () => {
   return (
     <div>
       <NavMain />

@@ -26,7 +26,7 @@ const Footer = (props) => {
             <a
               href='https://www.antoinestouff.fr/'
               target='_blank'
-              rel='noreferrer'
+              rel='noopener noreferrer'
             >
               <span>Antoine</span>
             </a>
@@ -35,7 +35,7 @@ const Footer = (props) => {
             <a
               href='https://www.clairesayart.fr/'
               target='_blank'
-              rel='noreferrer'
+              rel='noopener noreferrer'
             >
               <span>Claire</span>
             </a>
@@ -44,7 +44,7 @@ const Footer = (props) => {
             <a
               href='https://www.paulinebellaud.fr/'
               target='_blank'
-              rel='noreferrer'
+              rel='noopener noreferrer'
             >
               <span>Pauline</span>
             </a>

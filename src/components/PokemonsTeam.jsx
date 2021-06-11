@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import PokemonBoxTeam from "./PokemonBoxTeam";
-import apiHandler from "../api/apiHandler";
+import React, { Component } from 'react';
+
+import PokemonBoxTeam from './PokemonBoxTeam';
+import apiHandler from '../api/apiHandler';
 
 class PokemonsTeam extends Component {
   state = {
@@ -24,15 +25,15 @@ class PokemonsTeam extends Component {
   };
 
   render() {
+
+
     if (this.state.team === []) {
       return <div>You have no pokemon in your team yet</div>;
     }
-    console.log(this.state.team);
-
     return (
-      <div className="team-container">
-        <h1 className="styling-title">Your team</h1>
-        <div className="team-pokemon">
+      <div className='team-container'>
+        <h1 className='styling-title'>Your team</h1>
+        <div className='team-pokemon'>
           {this.state.team.map((item, index) => (
             <PokemonBoxTeam
               key={index}

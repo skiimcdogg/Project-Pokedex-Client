@@ -11,7 +11,7 @@ class FavoritesPokemons extends Component {
 
   componentDidMount() {
     const { favorites } = this.props;
-    this.setState({ favorites: this.props.favorites });
+    this.setState({ favorites: favorites });
   }
 
   deletePokemon = (id) => {
