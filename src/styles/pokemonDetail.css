@@ -78,6 +78,19 @@
   );
 }
 
+.pokemon-btns button:active {
+  background: linear-gradient(
+    50deg,
+    rgba(230, 250, 255, 1) 0%,
+    rgba(68, 164, 199, 1) 40%,
+    rgb(189, 20, 20) 100%
+  );
+}
+
+.pokemon-btns p {
+ color: red;
+}
+
 .close-card {
   color: grey;
   text-align: right;

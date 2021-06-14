@@ -5,6 +5,7 @@ import FormFav from '../Forms/FormFav';
 import FormTeam from '../Forms/FormTeam';
 import apiHandler from '../../api/apiHandler';
 import './../../styles/pokemonDetail.css';
+import { withUser } from '../Auth/withUser';
 
 
 class PokemonDetail extends React.Component {
@@ -66,6 +67,7 @@ class PokemonDetail extends React.Component {
 
     const { pokemon, user } = this.state;
     const { handleDetailClick } = this.props;
+    const { context } = this.props;
 
     const convertWeight = Number(pokemon.weight) / 10;
     return (
@@ -115,13 +117,14 @@ class PokemonDetail extends React.Component {
             ))}
           </div>
         </div>
-
-        <div className='pokemon-btns'>
+            { context.isLoggedIn &&
+          (<div className='pokemon-btns'>
           <FormFav pokemon={pokemon} />
           <FormTeam pokemon={pokemon} user={user} />
-        </div>
+        </div>)
+            }
       </div>
     );
   }
 }
-export default withRouter(PokemonDetail);
+export default withUser(withRouter(PokemonDetail));
