@@ -11,7 +11,6 @@ import { withUser } from '../Auth/withUser';
 class PokemonDetail extends React.Component {
   state = {
     pokemon: null,
-    user: null,
   };
 
   componentDidMount() {
@@ -26,14 +25,6 @@ class PokemonDetail extends React.Component {
         console.log(error);
       });
 
-    apiHandler
-      .getUser()
-      .then((response) => {
-        this.setState({ user: response });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -49,14 +40,6 @@ class PokemonDetail extends React.Component {
           console.log(error);
         });
 
-      apiHandler
-        .getUser()
-        .then((response) => {
-          this.setState({ user: response });
-        })
-        .catch((error) => {
-          console.log(error);
-        });
     }
   }
 
@@ -120,7 +103,7 @@ class PokemonDetail extends React.Component {
             { context.isLoggedIn &&
           (<div className='pokemon-btns'>
           <FormFav pokemon={pokemon} />
-          <FormTeam pokemon={pokemon} user={user} />
+          <FormTeam pokemon={pokemon} />
         </div>)
             }
       </div>

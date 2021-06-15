@@ -78,13 +78,19 @@
   );
 }
 
+
+.pokemon-btns button:focus {
+  opacity: 0.7;
+}
+
 .pokemon-btns button:active {
   background: linear-gradient(
     50deg,
     rgba(230, 250, 255, 1) 0%,
-    rgba(68, 164, 199, 1) 40%,
+    rgb(243, 71, 71) 40%,
     rgb(189, 20, 20) 100%
   );
+  border: 1px solid rgb(189, 20, 20);
 }
 
 .pokemon-btns p {
