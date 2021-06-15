@@ -17,11 +17,11 @@ class PokemonRandom extends React.Component {
     return (
       <div className='pokemon-random-card'>
         <img
-          src={pokemon.sprites.front_default}
+          src={pokemon.sprites.front_shiny}
           alt={pokemon.name}
         />
 
-        <h2 className='single-pokemon-random'>{pokemon.name}</h2>
+        <h2 className='single-pokemon-random'>{pokemon.name} Shiny</h2>
 
         <div className='random-pokemon-types'>
           {pokemon.types.map((item, index) => (
