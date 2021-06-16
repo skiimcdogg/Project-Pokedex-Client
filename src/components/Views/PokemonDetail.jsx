@@ -43,16 +43,21 @@ class PokemonDetail extends React.Component {
     }
   }
 
+  capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
   render() {
     if (this.state.pokemon === null) {
       return <div>Loading...</div>;
     }
 
-    const { pokemon, user } = this.state;
+    const { pokemon } = this.state;
     const { handleDetailClick } = this.props;
     const { context } = this.props;
 
     const convertWeight = Number(pokemon.weight) / 10;
+    
     return (
       <div className='pokemon-card'>
         <Link onClick={handleDetailClick} to='/pokedex'>
@@ -66,7 +71,7 @@ class PokemonDetail extends React.Component {
           alt={pokemon.name}
         />
 
-        <h2 className='single-pokemon'>{pokemon.name}</h2>
+        <h2 className='single-pokemon'>{this.capitalize(pokemon.name)}</h2>
 
         <div className='pokemon-types'>
           {pokemon.types.map((item, index) => (

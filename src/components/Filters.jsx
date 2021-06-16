@@ -10,12 +10,12 @@ function Filters(props) {
   }
 
   if (types.results === undefined) {
-    return <div>Loading...</div>;
+    return <div className="loading-box">Fetching types...</div>;
   }
   return (
     <div>
       <div className='filter-box'>
-        {types.results.map((type) => {
+        {types.results.slice(0, -2).map((type) => {
           return (
             <div className='filter' key={type.name}>
               <label htmlFor={type.name}>

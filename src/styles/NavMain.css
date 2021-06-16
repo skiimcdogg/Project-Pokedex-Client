@@ -37,7 +37,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 120%;
+  font-size: 110%;
+  font-weight: normal;
 }
 
 .nav-list > li {
@@ -54,11 +55,24 @@
   align-items: center;
 }
 
+.nav-main h3 {
+    padding: 7px;
+}
+
+.nav-list h3 {
+  font-weight: unset;
+}
+
 .pokeball-logo {
   display: flex;
   align-items: center;
   cursor: auto;
   text-decoration: inherit;
+}
+
+.pokeball-logo-img {
+  width: 14%;
+  cursor: pointer;
 }
 
 .pokeball-logo img {
@@ -72,7 +86,7 @@
 
 @media screen and (max-width: 600px) {
   .nav-main {
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
   .pokeball-logo img {
@@ -80,10 +94,13 @@
   }
 
   .first-div {
-    font-size: 100%;
+    font-size: 90%;
   }
 
   .nav-list {
-    font-size: 100%;
+    font-size: 90%;
+  }
+  h3 {
+    padding:0;
   }
 }

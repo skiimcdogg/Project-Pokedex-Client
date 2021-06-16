@@ -78,7 +78,6 @@
   );
 }
 
-
 .pokemon-btns button:focus {
   opacity: 0.7;
 }
@@ -123,6 +122,6 @@
 
 @media screen and (max-height: 750px) {
     .pokemon-card {
-        top: 50%;
+        top: 58.5%;
     }
   }

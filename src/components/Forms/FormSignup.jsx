@@ -61,7 +61,7 @@ class FormSignup extends Component {
     }
     console.log(this.state);
     return (
-      <div className='form-container'>
+      <div className='form-container' style={{ marginTop: "5%" }}>
         <form className='form' onSubmit={this.handleSubmit}>
           <label htmlFor='avatar' className='avatar'>
             Upload Avatar

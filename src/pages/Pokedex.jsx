@@ -81,10 +81,7 @@ class Pokedex extends React.Component {
             item.types[1].type.name.includes(typesChecked)
           : item.types[0].type.name.includes(typesChecked)
       );
-
-    if (this.state.pokemons === []) {
-      return <div>Loading...</div>;
-    }
+      console.log(newPokemonArray)
 
     return (
       <div>
@@ -116,18 +113,24 @@ class Pokedex extends React.Component {
             />
           </div>
         </div>
-        <div
+
+        {newPokemonArray.length === 0
+        ? <div className="loading-box">
+          <img className="loading-img" src="/images/mew-loading.gif" alt="loading"/>
+          <p>Loading...</p>
+          </div>
+        : <div
           className="pokemons-list"
           style={
             this.state.detailClicked
               ? { width: '45%', marginLeft: '5%', overflowY: 'scroll' }
               : { width: '100%' }
-          }
-        >
+          }>
           {newPokemonArray.map((item, index) => (
             <PokemonsList key={index} pokemons={item} />
           ))}
         </div>
+        }
 
         <Route
           exact

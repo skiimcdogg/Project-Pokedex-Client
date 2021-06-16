@@ -10,8 +10,14 @@ const Footer = (props) => {
     <div className='footer'>
       <div>
         <p>
-          Designed by <span>Antoine</span>, <span>Claire</span> &{' '}
-          <span>Pauline</span>
+          See the GitHub repo:
+            <a
+              href='https://github.com/skiimcdogg/Project-Pokedex-Client'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <span> Client</span>
+            </a>
         </p>
       </div>
 

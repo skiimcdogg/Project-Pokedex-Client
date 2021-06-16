@@ -8,12 +8,17 @@ class PokemonRandom extends React.Component {
     this.props.randomPokemon();
   }
 
+  capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
   render() {
     if (this.props.pokemon === null) {
       return <div>Loading...</div>;
     }
     const { pokemon } = this.props;
     const convertWeight = Number(pokemon.weight) / 10;
+
     return (
       <div className='pokemon-random-card'>
         <img
@@ -21,7 +26,7 @@ class PokemonRandom extends React.Component {
           alt={pokemon.name}
         />
 
-        <h2 className='single-pokemon-random'>{pokemon.name} Shiny</h2>
+        <h2 className='single-pokemon-random'>{this.capitalize(pokemon.name)} Shiny</h2>
 
         <div className='random-pokemon-types'>
           {pokemon.types.map((item, index) => (

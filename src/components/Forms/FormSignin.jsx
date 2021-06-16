@@ -37,7 +37,7 @@ class FormSignin extends Component {
     }
 
     return (
-      <div className='form-container'>
+      <div className='form-container' style={{ marginTop: "10%" }}>
         <form
             className='form'
             onChange={this.handleChange}
