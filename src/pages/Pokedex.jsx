@@ -15,6 +15,7 @@ class Pokedex extends React.Component {
     types: [],
     typesChecked: [],
     detailClicked: false,
+    message: "Loading..."
   };
 
   componentDidMount() {
@@ -25,6 +26,7 @@ class Pokedex extends React.Component {
       })
       .catch((error) => {
         console.log(error);
+        this.setState({ message: "Loading failed" });
       });
 
     apiHandler
@@ -61,7 +63,7 @@ class Pokedex extends React.Component {
   };
 
   render() {
-    const { search, pokemons, types, typesChecked } = this.state;
+    const { search, pokemons, types, typesChecked, message } = this.state;
 
     let newPokemonArray = pokemons
       .filter((item) =>
@@ -81,7 +83,6 @@ class Pokedex extends React.Component {
             item.types[1].type.name.includes(typesChecked)
           : item.types[0].type.name.includes(typesChecked)
       );
-      console.log(newPokemonArray)
 
     return (
       <div>
@@ -117,7 +118,7 @@ class Pokedex extends React.Component {
         {newPokemonArray.length === 0
         ? <div className="loading-box">
           <img className="loading-img" src="/images/mew-loading.gif" alt="loading"/>
-          <p>Loading...</p>
+          <p>{message}</p>
           </div>
         : <div
           className="pokemons-list"

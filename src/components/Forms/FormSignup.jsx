@@ -59,7 +59,6 @@ class FormSignup extends Component {
     if (this.props.context.user) {
       return <Redirect to='/' />;
     }
-    console.log(this.state);
     return (
       <div className='form-container' style={{ marginTop: "5%" }}>
         <form className='form' onSubmit={this.handleSubmit}>
