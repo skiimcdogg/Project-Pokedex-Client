@@ -108,3 +108,30 @@ span:hover {
     font-size: 90%;
   }
 }
+
+.click-me-msg {
+  position: absolute;
+  bottom: 12%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-weight: bolder;
+  color: rgb(247,232,161);
+}
+.msg-p:after {
+    content: " ";
+    position: absolute;
+    right: 49.5%;
+    bottom: -15px;
+    border-top: 15px solid rgb(15, 166, 221);
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-bottom: none;
+}
+
+.click-me-msg p {
+  border-radius: 5px;
+  padding: 0.5%;
+  background-color: rgb(15, 166, 221);
+  font-weight: bolder;
+}
