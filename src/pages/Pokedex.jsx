@@ -15,7 +15,8 @@ class Pokedex extends React.Component {
     types: [],
     typesChecked: [],
     detailClicked: false,
-    message: "Loading..."
+    message: "Loading...",
+    src: "/images/mew-loading.gif"
   };
 
   componentDidMount() {
@@ -26,7 +27,8 @@ class Pokedex extends React.Component {
       })
       .catch((error) => {
         console.log(error);
-        this.setState({ message: "Loading failed" });
+        this.setState({ message: "Loading failed",
+                        src: "/images/nothing_2.png" });
       });
 
     apiHandler
@@ -63,7 +65,7 @@ class Pokedex extends React.Component {
   };
 
   render() {
-    const { search, pokemons, types, typesChecked, message } = this.state;
+    const { search, pokemons, types, typesChecked, message, src } = this.state;
 
     let newPokemonArray = pokemons
       .filter((item) =>
@@ -83,6 +85,8 @@ class Pokedex extends React.Component {
             item.types[1].type.name.includes(typesChecked)
           : item.types[0].type.name.includes(typesChecked)
       );
+
+      console.log("Pokedex", newPokemonArray)
 
     return (
       <div>
@@ -115,21 +119,22 @@ class Pokedex extends React.Component {
           </div>
         </div>
 
-        {newPokemonArray.length === 0
+        {this.state.typesChecked.length === 0 && newPokemonArray.length === 0
         ? <div className="loading-box">
-          <img className="loading-img" src="/images/mew-loading.gif" alt="loading"/>
+          <img className="loading-img" src={src} alt="loading"/>
           <p>{message}</p>
           </div>
         : <div
-          className="pokemons-list"
+          className="scroll"
           style={
             this.state.detailClicked
               ? { width: '45%', marginLeft: '5%', overflowY: 'scroll' }
               : { width: '100%' }
           }>
-          {newPokemonArray.map((item, index) => (
+          {/* {newPokemonArray.map((item, index) => (
             <PokemonsList key={index} pokemons={item} />
-          ))}
+          ))} */}
+          <PokemonsList pokemons={newPokemonArray} />
         </div>
         }
 

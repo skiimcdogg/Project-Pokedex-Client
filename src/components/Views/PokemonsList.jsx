@@ -10,16 +10,32 @@ function PokemonsList(props) {
     return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
+      console.log("PokemonList", props.pokemons)
+
   return (
-    <div className='one-pokemon'>
-      <Link to={`/pokedex/${pokemons.id}`}>
+    // <div className='one-pokemon'>
+    //   <Link to={`/pokedex/${pokemons.id}`}>
+    //     <div className='pokemon-image'>
+    //       <img src={pokemons.sprites.front_default} alt=''/>
+    //     </div>
+    //     <p className='name'>{capitalize(pokemons.name)}</p>
+    //     <p className='id'>#{pokemons.id}</p>
+    //   </Link>
+    // </div>
+
+  <div className="pokemons-list">
+    {pokemons.map((pokemon) => (
+      <div key={pokemon.id} className='one-pokemon'>
+      <Link to={`/pokedex/${pokemon.id}`}>
         <div className='pokemon-image'>
-          <img src={pokemons.sprites.front_default} alt=''/>
+          <img src={pokemon.sprites.front_default} alt='pokemon-sprite'/>
         </div>
-        <p className='name'>{capitalize(pokemons.name)}</p>
-        <p className='id'>#{pokemons.id}</p>
+        <p className='name'>{capitalize(pokemon.name)}</p>
+        <p className='id'>#{pokemon.id}</p>
       </Link>
-    </div>
+      </div>
+    ))}
+  </div>
   );
 }
 
