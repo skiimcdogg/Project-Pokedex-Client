@@ -8,12 +8,7 @@ import apiHandler from '../api/apiHandler';
 class Home extends React.Component {
   state = {
     pokemon: null,
-    displayMessage: true,
   };
-
-  handleDisplayMessage = () => {
-    this.setState({ displayMessage: false })
-  }
 
   randomPokemon = () => {
     function getRandomIntInclusive(min, max) {
@@ -34,7 +29,7 @@ class Home extends React.Component {
   };
 
   render() {
-    const { pokemon, displayMessage } = this.state;
+    const { pokemon } = this.state;
 
     return (
       <div>
@@ -46,12 +41,8 @@ class Home extends React.Component {
               randomPokemon={this.randomPokemon}
             />
           </div>
-          <div className="click-me-msg">
-          {displayMessage && 
-          ( <p className="msg-p"> Click Me !</p> ) }
-          </div>
         </div>
-        <Footer handleDisplayMessage={this.handleDisplayMessage} randomPokemon={this.randomPokemon} />
+        <Footer randomPokemon={this.randomPokemon} />
       </div>
     );
   }

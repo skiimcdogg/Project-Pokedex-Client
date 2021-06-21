@@ -1,10 +1,10 @@
 import React from 'react';
 
-import pokeballLogo4 from './../styles/images/pokeball-logo-4.png';
+import pokeballLogo4 from './../styles/images/pokeball-logo-5.png';
 
 const Footer = (props) => {
 
-    const { randomPokemon, handleDisplayMessage } = props;
+    const { randomPokemon } = props;
 
   return (
     <div className='footer'>
@@ -21,9 +21,8 @@ const Footer = (props) => {
         </p>
       </div>
 
-      <div onClick={() => {
-        randomPokemon();
-        handleDisplayMessage();}} className='pokeball-footer'>
+      <div onClick={randomPokemon}
+          className='pokeball-footer'>
         <img src={pokeballLogo4} alt='logo' />
       </div>
 
