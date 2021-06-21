@@ -4,6 +4,7 @@ import { withUser } from '../components/Auth/withUser';
 import apiHandler from '../api/apiHandler';
 import '../styles/NavMain.css';
 import pokedexLogo from './../styles/images/pokedex-logo.png';
+import defaultLogo from './../styles/images/pokeball-logo-3.png';
 
 const NavMain = (props) => {
   const { context } = props;
@@ -18,6 +19,8 @@ const NavMain = (props) => {
         console.log(error);
       });
   }
+console.log("CONTEXT", props.context.user);
+
   return (
     <nav className='nav-main'>
       <div className='first-div'>
@@ -40,6 +43,12 @@ const NavMain = (props) => {
               <li>
                 <NavLink to='/profile'>
                   {context.user && (
+                    context.user.avatar === "" ?
+                    <img
+                      className='profile-img'
+                      src={defaultLogo}
+                      alt='avatar'
+                    /> :
                     <img
                       className='profile-img'
                       src={context.user.avatar}
