@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 
 import NavMain from '../components/NavMain';
@@ -7,87 +7,91 @@ import PokemonsList from '../components/Views/PokemonsList';
 import PokemonDetail from '../components/Views/PokemonDetail';
 import apiHandler from '../api/apiHandler';
 import Filters from '../components/Filters';
+import InfiniteScroll from "./../components/InfiniteScroll";
 
-class Pokedex extends React.Component {
-  state = {
-    pokemons: [],
-    search: '',
-    types: [],
-    typesChecked: [],
-    detailClicked: false,
-    message: "Loading...",
-    src: "/images/mew-loading.gif"
-  };
+const typesChecked = [];
 
-  componentDidMount() {
+function Pokedex() {
+  const [pokemons, setPokemons] = useState([]);
+  const [search, setSearch] = useState('');
+  const [types, setTypes] = useState([]);
+  const [, setRefreshTypes] = useState(true);
+  const [detailClicked, setDetailClicked] = useState(false);
+  const [message, setMessage] = useState("Loading...");
+  const [src, setSrc] = useState("/images/mew-loading.gif");
+  const [sliceValue, setSliceValue] = useState(150);
+  const [isFetching, setIsFetching] = InfiniteScroll(fetchMoreListItems);
+
+  const newPokemonArray = pokemons
+  .filter((item) =>
+    item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+  )
+  .filter((item) =>
+    item.types.length === 2 &&
+    typesChecked.length === 2 &&
+    !item.types[0].type.name.includes(typesChecked[0])
+      ? item.types[0].type.name.includes(typesChecked[1]) &&
+        item.types[1].type.name.includes(typesChecked[0])
+      : item.types.length === 2 && typesChecked.length === 2
+      ? item.types[0].type.name.includes(typesChecked[0]) &&
+        item.types[1].type.name.includes(typesChecked[1])
+      : item.types.length === 2 && typesChecked.length === 1
+      ? item.types[0].type.name.includes(typesChecked) ||
+        item.types[1].type.name.includes(typesChecked)
+      : item.types[0].type.name.includes(typesChecked)
+  );
+
+  const filtredArr = Array.from(newPokemonArray.slice(0, sliceValue));
+  
+
+
+  useEffect(() => {
     apiHandler
       .getPokemons()
       .then((response) => {
-        this.setState({ pokemons: response });
+        setPokemons(response);
       })
       .catch((error) => {
         console.log(error);
-        this.setState({ message: "Loading failed",
-                        src: "/images/nothing_2.png" });
-      });
+        setMessage("Loading failed");
+        setSrc("/images/nothing_2.png");
+      });   
 
     apiHandler
       .getTypes()
       .then((response) => {
-        this.setState({ types: response });
+        setTypes(response)
       })
       .catch((error) => {
         console.log(error);
       });
+  },[])
+  
+  function fetchMoreListItems() {
+    setSliceValue(sliceValue + 100);
+      setIsFetching(false);
   }
 
-  handleDetailClick = () => {
-    this.setState({ detailClicked: !this.state.detailClicked });
+  const handleDetailClick = () => {
+    setDetailClicked(!detailClicked)
   };
 
-  handleSearch = (valueFromSearch) => {
-    this.setState({ search: valueFromSearch });
+  const handleSearch = (valueFromSearch) => {
+    setSearch(valueFromSearch)
   };
 
-  handleChangeInput = (event) => {
-    const { typesChecked } = this.state;
+  const handleChangeInput = (event) => {
     const target = event.target;
     if (target.checked) {
-      const array = typesChecked;
-      array.push(target.name);
-      this.setState({ typesChecked: array });
+      typesChecked.push(target.name);
+      setRefreshTypes(e => !e);
     } else {
-      const array = typesChecked;
-      const toRemove = array.indexOf(target.name);
-      array.splice(toRemove, 1);
-      this.setState({ typesChecked: array });
+      const toRemove = typesChecked.indexOf(target.name);
+      typesChecked.splice(toRemove, 1);
+      setRefreshTypes(e => !e);
     }
   };
-
-  render() {
-    const { search, pokemons, types, typesChecked, message, src } = this.state;
-
-    let newPokemonArray = pokemons
-      .filter((item) =>
-        item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-      )
-      .filter((item) =>
-        item.types.length === 2 &&
-        typesChecked.length === 2 &&
-        !item.types[0].type.name.includes(typesChecked[0])
-          ? item.types[0].type.name.includes(typesChecked[1]) &&
-            item.types[1].type.name.includes(typesChecked[0])
-          : item.types.length === 2 && typesChecked.length === 2
-          ? item.types[0].type.name.includes(typesChecked[0]) &&
-            item.types[1].type.name.includes(typesChecked[1])
-          : item.types.length === 2 && typesChecked.length === 1
-          ? item.types[0].type.name.includes(typesChecked) ||
-            item.types[1].type.name.includes(typesChecked)
-          : item.types[0].type.name.includes(typesChecked)
-      );
-
-      console.log("Pokedex", newPokemonArray)
-
+ 
     return (
       <div>
         <NavMain />
@@ -95,16 +99,16 @@ class Pokedex extends React.Component {
           <div>
             <Filters
               types={types}
-              handleChangeInput={this.handleChangeInput}
+              handleChangeInput={handleChangeInput}
               checkedArr={typesChecked}
             />
-            {this.state.typesChecked.length === 3 && (
+            {typesChecked.length === 3 && (
               <div className="message-box">
                 <p className="message">Please select only two types at once</p>
               </div>
             )}
-            {this.state.typesChecked.length === 2 &&
-              newPokemonArray.length === 0 && (
+            {typesChecked.length === 2 &&
+              filtredArr.length === 0 && (
                 <div className="message-box">
                   <p className="message">No match</p>
                 </div>
@@ -114,27 +118,28 @@ class Pokedex extends React.Component {
           <div className="flex-search">
             <FilterSearchBar
               search={search}
-              handleSearchFn={this.handleSearch}
+              handleSearchFn={handleSearch}
             />
           </div>
         </div>
 
-        {this.state.typesChecked.length === 0 && newPokemonArray.length === 0
+        {typesChecked.length === 0 && filtredArr.length === 0
         ? <div className="loading-box">
           <img className="loading-img" src={src} alt="loading"/>
           <p>{message}</p>
           </div>
         : <div
-          className="scroll"
+          className="scroll pokemons-list"
           style={
-            this.state.detailClicked
-              ? { width: '45%', marginLeft: '5%', overflowY: 'scroll' }
+            detailClicked
+              ? { width: '45%', marginLeft: '5%', overflowY: 'scroll', height: '70vh' }
               : { width: '100%' }
           }>
-          {/* {newPokemonArray.map((item, index) => (
+            {filtredArr.map((item, index) => (
             <PokemonsList key={index} pokemons={item} />
-          ))} */}
-          <PokemonsList pokemons={newPokemonArray} />
+          ))}
+          {isFetching && 'Fetching more list items...'}
+          {/* <PokemonsList pokemons={newPokemonArray} /> */}
         </div>
         }
 
@@ -144,13 +149,12 @@ class Pokedex extends React.Component {
           render={(props) => (
             <PokemonDetail
               {...props}
-              handleDetailClick={this.handleDetailClick}
+              handleDetailClick={handleDetailClick}
             />
           )}
         />
       </div>
     );
-  }
 }
 
 export default Pokedex;
