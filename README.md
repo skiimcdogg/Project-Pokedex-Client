@@ -1,6 +1,10 @@
 
 # POKEDEX (CLIENT SIDE) 
 
+# DISCLAIMER
+
+We only have the first five generations of pokemons because heroku is free and not so powerfull, sorry about this!
+
 ## Why Pokedex?
 
 First we wanted to create a fun app for Pokedex lovers around the world!
